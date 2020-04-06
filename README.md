@@ -90,6 +90,9 @@ and start.bat
 
 Distributed under the GNU GPL v3 license. See ``LICENSE`` for more information.
 
+## Credits
+To me as an Author and other people from the community
+
 ## Compatability
 This script should be compatable with other script logic written in JS.
 
