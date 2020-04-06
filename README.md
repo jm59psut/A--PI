@@ -17,7 +17,8 @@ Windows:
 5)Build the scripts pressing Build.bat
 6)After Building Scripts execute start.bat (should look like this bellow)
 ```
-<img src="https:/https://i.imgur.com/siQyYnT.png">
+<img src="https://i.imgur.com/siQyYnT.png">
+
 ```
 7)Open Dota 2 Match and Enjoy!
 ```
