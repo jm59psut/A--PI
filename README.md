@@ -40,10 +40,11 @@ The GUI is very limited (it has only on/off button), only just a list of togglea
 
 ## Developing New Scripts
 You will need Visual Studio Code or other Text Editor
-To Develop New Scripts just open the folder src from the fodler and start writing new body.ts file inside
-another folder for example src/testscript/body.ts
+To Develop New Scripts:
+1)Open the folder src in Visual Studio Code
+2)Start writing new body.ts file inside another folder for example src/testscript/body.ts
 After developing just rerun build.bat
-and restart the script.
+and start.bat
 ## Script List
 ```
 1)Tower Range
