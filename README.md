@@ -46,6 +46,7 @@ another folder for example src/testscript/body.ts
 After developing just rerun build.bat
 and restart the script.
 ## Script List
+
 1)Tower Range
 2)TrueSight Detector
 3)Ability Range
