@@ -82,6 +82,7 @@ and start.bat
 27)lasthutMarker
 28)Wardbuytroll
 29)WK abuse
+30)Skill Alert
 *many more...
 ```
 
