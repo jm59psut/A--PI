@@ -1,0 +1,5 @@
+<root>
+	<Panel style='background-color: #00000000;' class='JungleMapHack'>
+        <Label style='color: magenta; text-align: center; font-weight: bold; font-size: 20; margin: 0px 5px 5px 10px; text-shadow: 0px 0px 3px 3.7 #FFFFFFFF; font-family: Radiance;'/>
+	</Panel>
+</root>

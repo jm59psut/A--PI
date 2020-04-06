@@ -1,0 +1,7 @@
+<root>
+	<Panel style="width:100%;height:100%;">
+		<Label id="cooldown" text="" style='text-align: center; color: white; font-size: 24px; text-shadow: 0px 0px 6px 6 #000000; text-overflow: shrink; align: center center; font-family: monospaceNumbersFont; z-index: 2;'/>
+		<Panel id="cooldownoverlay" style="z-index: 1;align: center center;width: 80%; height: 80%; background-color:#000000dc;opacity: .8;"/>
+		<Panel id="nomana" style='transition-property: opacity; transition-delay: 0.0s; transition-duration: 0.6s; background-color:#060b65; opacity: .8; z-index: 0; width: 80%; height: 80%; align: center center;'/>
+	</Panel>
+</root>

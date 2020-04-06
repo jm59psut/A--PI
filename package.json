@@ -1,0 +1,61 @@
+{
+	"private": true,
+	"scripts": {
+		"start": "node server_src/index.js",
+		"build": "node build.js",
+		"build_vpk": "java -jar Source2Compiler.jar \"C:/Games/Steam/steamapps/common/dota 2 beta\" fusion src_compiled",
+		"clean": "del /S /Q build_state.json",
+		"build_clean": "npm run-script clean && npm run-script build"
+	},
+	"author": "moofMonkey",
+	"contributors": [
+		"moofMonkey",
+		"EmptyCrew",
+		"I_GRIN_I"
+	],
+	"devDependencies": {
+		"@babel/core": "latest",
+		"@babel/plugin-proposal-class-properties": "latest",
+		"@babel/preset-env": "latest",
+		"@babel/preset-typescript": "latest",
+		"babel-preset-minify": "^0.5.0-alpha.3cc09dcf",
+		"eslint": "latest",
+		"ajv": "latest",
+		"body-parser": "latest",
+		"express": "latest"
+	},
+	"eslintConfig": {
+		"parserOptions": {
+			"ecmaVersion": 8
+		},
+		"env": {
+			"es6": true,
+			"node": true
+		},
+		"extends": "eslint:recommended",
+		"rules": {
+			"indent": [
+				"error",
+				"tab",
+				{
+					"SwitchCase": 1
+				}
+			],
+			"no-empty": [
+				"error",
+				{
+					"allowEmptyCatch": true
+				}
+			],
+			"brace-style": [
+				"error",
+				"1tbs",
+				{
+					"allowSingleLine": true
+				}
+			],
+			"no-fallthrough": "off",
+			"no-console": "off"
+		}
+	}
+}

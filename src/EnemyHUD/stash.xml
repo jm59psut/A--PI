@@ -1,0 +1,16 @@
+<root>
+	<styles>
+    	<include src="s2r://panorama/styles/dotastyles.vcss_c"/>
+	</styles>
+	<Panel style="margin-bottom:12%;align: right bottom;width: 262px; height: 72px; background-image: url('s2r://panorama/images/hud/reborn/bg_item_build_psd.vtex'); background-repeat: no-repeat; z-index: 999;" hittest="false">
+		<Label style="font-weight: bold; align: center top; margin-top:6px; text-align:center; letter-spacing:2px; color:#8da1b1; font-size:15px; text-transform: uppercase;" text="#DOTA_InventoryStash" hittest="false"/>
+		<Panel id="itemrow" style="align: center bottom;width: 90%; height: 55%; flow-children: right;" hittest="false">
+			<DOTAItemImage itemname='' id="item0"/>
+			<DOTAItemImage itemname='' id="item1"/>
+			<DOTAItemImage itemname='' id="item2"/>
+			<DOTAItemImage itemname='' id="item3"/>
+			<DOTAItemImage itemname='' id="item4"/>
+			<DOTAItemImage itemname='' id="item5"/>
+		</Panel>
+	</Panel>
+</root>

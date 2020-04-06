@@ -1,0 +1,5 @@
+<root>
+	<Panel style='margin: -18px 0 0 -56px; width: 103px; height: 7px; background-color: #000000ff; border: 1px solid #333;' class='EnemyManaBar'>
+		<Panel style='width: 60%; height: 100%; background-color: #4444ffff;'/>
+	</Panel>
+</root>

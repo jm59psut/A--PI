@@ -1,0 +1,7 @@
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/hud/dota_hud_ability_panel.css"/>
+	</styles>
+
+	<Panel class="LevelPanel"/>
+</root>

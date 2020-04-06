@@ -1,0 +1,199 @@
+﻿<root>
+	<Panel class="ItemsPanel1" style="width:234px;flow-children: down;background-color:black;">
+		<Panel style="width:100%;height:24px;flow-children:right;">
+			<DOTAHeroImage heroname="" style="width:40px;height:24px;"/>
+			<DOTAItemImage itemname="" style="height:24px;width:32px;">
+				<Label style='color:white; align: right bottom; z-index: 2; text-shadow: 0px 0px 3px 3.7 #000000FF; font-family: monospaceNumbersFont; text-overflow: shrink; text-align: center;'/>
+				<Label id="cooldown" hittest="false" text="" style='text-align: center; color: white; font-size: 12px; text-shadow: 0px 0px 3px 3.7 #000000FF; text-overflow: shrink; align: center center; font-family: monospaceNumbersFont; z-index: 2;'/>
+				<Panel id="cooldownoverlay" hittest="false" style="z-index: 1; align: center center; width: 100%; height: 100%; background-color: #000000; opacity: .8;"/>
+				<Panel id="nomana" hittest="false" style="transition-property: opacity; transition-delay: 0.0s; transition-duration: 0.6s; background-color:#060b65; opacity: .0; z-index: 0; width: 100%; height: 100%; align: center center;"/>
+			</DOTAItemImage>
+			<DOTAItemImage itemname="" style="height:24px;width:32px;">
+				<Label style='color:white; align: right bottom; z-index: 2; text-shadow: 0px 0px 3px 3.7 #000000FF; font-family: monospaceNumbersFont; text-overflow: shrink; text-align: center;'/>
+				<Label id="cooldown" hittest="false" text="" style='text-align: center; color: white; font-size: 12px; text-shadow: 0px 0px 3px 3.7 #000000FF; text-overflow: shrink; align: center center; font-family: monospaceNumbersFont; z-index: 2;'/>
+				<Panel id="cooldownoverlay" hittest="false" style="z-index: 1; align: center center; width: 100%; height: 100%; background-color: #000000; opacity: .8;"/>
+				<Panel id="nomana" hittest="false" style="transition-property: opacity; transition-delay: 0.0s; transition-duration: 0.6s; background-color:#060b65; opacity: .0; z-index: 0; width: 100%; height: 100%; align: center center;"/>
+			</DOTAItemImage>
+			<DOTAItemImage itemname="" style="height:24px;width:32px;">
+				<Label style='color:white; align: right bottom; z-index: 2; text-shadow: 0px 0px 3px 3.7 #000000FF; font-family: monospaceNumbersFont; text-overflow: shrink; text-align: center;'/>
+				<Label id="cooldown" hittest="false" text="" style='text-align: center; color: white; font-size: 12px; text-shadow: 0px 0px 3px 3.7 #000000FF; text-overflow: shrink; align: center center; font-family: monospaceNumbersFont; z-index: 2;'/>
+				<Panel id="cooldownoverlay" hittest="false" style="z-index: 1; align: center center; width: 100%; height: 100%; background-color: #000000; opacity: .8;"/>
+				<Panel id="nomana" hittest="false" style="transition-property: opacity; transition-delay: 0.0s; transition-duration: 0.6s; background-color:#060b65; opacity: .0; z-index: 0; width: 100%; height: 100%; align: center center;"/>
+			</DOTAItemImage>
+			<DOTAItemImage itemname="" style="height:24px;width:32px;">
+				<Label style='color:white; align: right bottom; z-index: 2; text-shadow: 0px 0px 3px 3.7 #000000FF; font-family: monospaceNumbersFont; text-overflow: shrink; text-align: center;'/>
+				<Label id="cooldown" hittest="false" text="" style='text-align: center; color: white; font-size: 12px; text-shadow: 0px 0px 3px 3.7 #000000FF; text-overflow: shrink; align: center center; font-family: monospaceNumbersFont; z-index: 2;'/>
+				<Panel id="cooldownoverlay" hittest="false" style="z-index: 1; align: center center; width: 100%; height: 100%; background-color: #000000; opacity: .8;"/>
+				<Panel id="nomana" hittest="false" style="transition-property: opacity; transition-delay: 0.0s; transition-duration: 0.6s; background-color:#060b65; opacity: .0; z-index: 0; width: 100%; height: 100%; align: center center;"/>
+			</DOTAItemImage>
+			<DOTAItemImage itemname="" style="height:24px;width:32px;">
+				<Label style='color:white; align: right bottom; z-index: 2; text-shadow: 0px 0px 3px 3.7 #000000FF; font-family: monospaceNumbersFont; text-overflow: shrink; text-align: center;'/>
+				<Label id="cooldown" hittest="false" text="" style='text-align: center; color: white; font-size: 12px; text-shadow: 0px 0px 3px 3.7 #000000FF; text-overflow: shrink; align: center center; font-family: monospaceNumbersFont; z-index: 2;'/>
+				<Panel id="cooldownoverlay" hittest="false" style="z-index: 1; align: center center; width: 100%; height: 100%; background-color: #000000; opacity: .8;"/>
+				<Panel id="nomana" hittest="false" style="transition-property: opacity; transition-delay: 0.0s; transition-duration: 0.6s; background-color:#060b65; opacity: .0; z-index: 0; width: 100%; height: 100%; align: center center;"/>
+			</DOTAItemImage>
+			<DOTAItemImage itemname="" style="height:24px;width:32px;">
+				<Label style='color:white; align: right bottom; z-index: 2; text-shadow: 0px 0px 3px 3.7 #000000FF; font-family: monospaceNumbersFont; text-overflow: shrink; text-align: center;'/>
+				<Label id="cooldown" hittest="false" text="" style='text-align: center; color: white; font-size: 12px; text-shadow: 0px 0px 3px 3.7 #000000FF; text-overflow: shrink; align: center center; font-family: monospaceNumbersFont; z-index: 2;'/>
+				<Panel id="cooldownoverlay" hittest="false" style="z-index: 1; align: center center; width: 100%; height: 100%; background-color: #000000; opacity: .8;"/>
+				<Panel id="nomana" hittest="false" style="transition-property: opacity; transition-delay: 0.0s; transition-duration: 0.6s; background-color:#060b65; opacity: .0; z-index: 0; width: 100%; height: 100%; align: center center;"/>
+			</DOTAItemImage>
+		</Panel>
+		<Panel style="width:100%;height:24px;flow-children:right;">
+			<DOTAHeroImage heroname="" style="width:40px;height:24px;"/>
+			<DOTAItemImage itemname="" style="height:24px;width:32px;">
+				<Label style='color:white; align: right bottom; z-index: 2; text-shadow: 0px 0px 3px 3.7 #000000FF; font-family: monospaceNumbersFont; text-overflow: shrink; text-align: center;'/>
+				<Label id="cooldown" hittest="false" text="" style='text-align: center; color: white; font-size: 12px; text-shadow: 0px 0px 3px 3.7 #000000FF; text-overflow: shrink; align: center center; font-family: monospaceNumbersFont; z-index: 2;'/>
+				<Panel id="cooldownoverlay" hittest="false" style="z-index: 1; align: center center; width: 100%; height: 100%; background-color: #000000; opacity: .8;"/>
+				<Panel id="nomana" hittest="false" style="transition-property: opacity; transition-delay: 0.0s; transition-duration: 0.6s; background-color:#060b65; opacity: .0; z-index: 0; width: 100%; height: 100%; align: center center;"/>
+			</DOTAItemImage>
+			<DOTAItemImage itemname="" style="height:24px;width:32px;">
+				<Label style='color:white; align: right bottom; z-index: 2; text-shadow: 0px 0px 3px 3.7 #000000FF; font-family: monospaceNumbersFont; text-overflow: shrink; text-align: center;'/>
+				<Label id="cooldown" hittest="false" text="" style='text-align: center; color: white; font-size: 12px; text-shadow: 0px 0px 3px 3.7 #000000FF; text-overflow: shrink; align: center center; font-family: monospaceNumbersFont; z-index: 2;'/>
+				<Panel id="cooldownoverlay" hittest="false" style="z-index: 1; align: center center; width: 100%; height: 100%; background-color: #000000; opacity: .8;"/>
+				<Panel id="nomana" hittest="false" style="transition-property: opacity; transition-delay: 0.0s; transition-duration: 0.6s; background-color:#060b65; opacity: .0; z-index: 0; width: 100%; height: 100%; align: center center;"/>
+			</DOTAItemImage>
+			<DOTAItemImage itemname="" style="height:24px;width:32px;">
+				<Label style='color:white; align: right bottom; z-index: 2; text-shadow: 0px 0px 3px 3.7 #000000FF; font-family: monospaceNumbersFont; text-overflow: shrink; text-align: center;'/>
+				<Label id="cooldown" hittest="false" text="" style='text-align: center; color: white; font-size: 12px; text-shadow: 0px 0px 3px 3.7 #000000FF; text-overflow: shrink; align: center center; font-family: monospaceNumbersFont; z-index: 2;'/>
+				<Panel id="cooldownoverlay" hittest="false" style="z-index: 1; align: center center; width: 100%; height: 100%; background-color: #000000; opacity: .8;"/>
+				<Panel id="nomana" hittest="false" style="transition-property: opacity; transition-delay: 0.0s; transition-duration: 0.6s; background-color:#060b65; opacity: .0; z-index: 0; width: 100%; height: 100%; align: center center;"/>
+			</DOTAItemImage>
+			<DOTAItemImage itemname="" style="height:24px;width:32px;">
+				<Label style='color:white; align: right bottom; z-index: 2; text-shadow: 0px 0px 3px 3.7 #000000FF; font-family: monospaceNumbersFont; text-overflow: shrink; text-align: center;'/>
+				<Label id="cooldown" hittest="false" text="" style='text-align: center; color: white; font-size: 12px; text-shadow: 0px 0px 3px 3.7 #000000FF; text-overflow: shrink; align: center center; font-family: monospaceNumbersFont; z-index: 2;'/>
+				<Panel id="cooldownoverlay" hittest="false" style="z-index: 1; align: center center; width: 100%; height: 100%; background-color: #000000; opacity: .8;"/>
+				<Panel id="nomana" hittest="false" style="transition-property: opacity; transition-delay: 0.0s; transition-duration: 0.6s; background-color:#060b65; opacity: .0; z-index: 0; width: 100%; height: 100%; align: center center;"/>
+			</DOTAItemImage>
+			<DOTAItemImage itemname="" style="height:24px;width:32px;">
+				<Label style='color:white; align: right bottom; z-index: 2; text-shadow: 0px 0px 3px 3.7 #000000FF; font-family: monospaceNumbersFont; text-overflow: shrink; text-align: center;'/>
+				<Label id="cooldown" hittest="false" text="" style='text-align: center; color: white; font-size: 12px; text-shadow: 0px 0px 3px 3.7 #000000FF; text-overflow: shrink; align: center center; font-family: monospaceNumbersFont; z-index: 2;'/>
+				<Panel id="cooldownoverlay" hittest="false" style="z-index: 1; align: center center; width: 100%; height: 100%; background-color: #000000; opacity: .8;"/>
+				<Panel id="nomana" hittest="false" style="transition-property: opacity; transition-delay: 0.0s; transition-duration: 0.6s; background-color:#060b65; opacity: .0; z-index: 0; width: 100%; height: 100%; align: center center;"/>
+			</DOTAItemImage>
+			<DOTAItemImage itemname="" style="height:24px;width:32px;">
+				<Label style='color:white; align: right bottom; z-index: 2; text-shadow: 0px 0px 3px 3.7 #000000FF; font-family: monospaceNumbersFont; text-overflow: shrink; text-align: center;'/>
+				<Label id="cooldown" hittest="false" text="" style='text-align: center; color: white; font-size: 12px; text-shadow: 0px 0px 3px 3.7 #000000FF; text-overflow: shrink; align: center center; font-family: monospaceNumbersFont; z-index: 2;'/>
+				<Panel id="cooldownoverlay" hittest="false" style="z-index: 1; align: center center; width: 100%; height: 100%; background-color: #000000; opacity: .8;"/>
+				<Panel id="nomana" hittest="false" style="transition-property: opacity; transition-delay: 0.0s; transition-duration: 0.6s; background-color:#060b65; opacity: .0; z-index: 0; width: 100%; height: 100%; align: center center;"/>
+			</DOTAItemImage>
+		</Panel>
+		<Panel style="width:100%;height:24px;flow-children:right;">
+			<DOTAHeroImage heroname="" style="width:40px;height:24px;"/>
+			<DOTAItemImage itemname="" style="height:24px;width:32px;">
+				<Label style='color:white; align: right bottom; z-index: 2; text-shadow: 0px 0px 3px 3.7 #000000FF; font-family: monospaceNumbersFont; text-overflow: shrink; text-align: center;'/>
+				<Label id="cooldown" hittest="false" text="" style='text-align: center; color: white; font-size: 12px; text-shadow: 0px 0px 3px 3.7 #000000FF; text-overflow: shrink; align: center center; font-family: monospaceNumbersFont; z-index: 2;'/>
+				<Panel id="cooldownoverlay" hittest="false" style="z-index: 1; align: center center; width: 100%; height: 100%; background-color: #000000; opacity: .8;"/>
+				<Panel id="nomana" hittest="false" style="transition-property: opacity; transition-delay: 0.0s; transition-duration: 0.6s; background-color:#060b65; opacity: .0; z-index: 0; width: 100%; height: 100%; align: center center;"/>
+			</DOTAItemImage>
+			<DOTAItemImage itemname="" style="height:24px;width:32px;">
+				<Label style='color:white; align: right bottom; z-index: 2; text-shadow: 0px 0px 3px 3.7 #000000FF; font-family: monospaceNumbersFont; text-overflow: shrink; text-align: center;'/>
+				<Label id="cooldown" hittest="false" text="" style='text-align: center; color: white; font-size: 12px; text-shadow: 0px 0px 3px 3.7 #000000FF; text-overflow: shrink; align: center center; font-family: monospaceNumbersFont; z-index: 2;'/>
+				<Panel id="cooldownoverlay" hittest="false" style="z-index: 1; align: center center; width: 100%; height: 100%; background-color: #000000; opacity: .8;"/>
+				<Panel id="nomana" hittest="false" style="transition-property: opacity; transition-delay: 0.0s; transition-duration: 0.6s; background-color:#060b65; opacity: .0; z-index: 0; width: 100%; height: 100%; align: center center;"/>
+			</DOTAItemImage>
+			<DOTAItemImage itemname="" style="height:24px;width:32px;">
+				<Label style='color:white; align: right bottom; z-index: 2; text-shadow: 0px 0px 3px 3.7 #000000FF; font-family: monospaceNumbersFont; text-overflow: shrink; text-align: center;'/>
+				<Label id="cooldown" hittest="false" text="" style='text-align: center; color: white; font-size: 12px; text-shadow: 0px 0px 3px 3.7 #000000FF; text-overflow: shrink; align: center center; font-family: monospaceNumbersFont; z-index: 2;'/>
+				<Panel id="cooldownoverlay" hittest="false" style="z-index: 1; align: center center; width: 100%; height: 100%; background-color: #000000; opacity: .8;"/>
+				<Panel id="nomana" hittest="false" style="transition-property: opacity; transition-delay: 0.0s; transition-duration: 0.6s; background-color:#060b65; opacity: .0; z-index: 0; width: 100%; height: 100%; align: center center;"/>
+			</DOTAItemImage>
+			<DOTAItemImage itemname="" style="height:24px;width:32px;">
+				<Label style='color:white; align: right bottom; z-index: 2; text-shadow: 0px 0px 3px 3.7 #000000FF; font-family: monospaceNumbersFont; text-overflow: shrink; text-align: center;'/>
+				<Label id="cooldown" hittest="false" text="" style='text-align: center; color: white; font-size: 12px; text-shadow: 0px 0px 3px 3.7 #000000FF; text-overflow: shrink; align: center center; font-family: monospaceNumbersFont; z-index: 2;'/>
+				<Panel id="cooldownoverlay" hittest="false" style="z-index: 1; align: center center; width: 100%; height: 100%; background-color: #000000; opacity: .8;"/>
+				<Panel id="nomana" hittest="false" style="transition-property: opacity; transition-delay: 0.0s; transition-duration: 0.6s; background-color:#060b65; opacity: .0; z-index: 0; width: 100%; height: 100%; align: center center;"/>
+			</DOTAItemImage>
+			<DOTAItemImage itemname="" style="height:24px;width:32px;">
+				<Label style='color:white; align: right bottom; z-index: 2; text-shadow: 0px 0px 3px 3.7 #000000FF; font-family: monospaceNumbersFont; text-overflow: shrink; text-align: center;'/>
+				<Label id="cooldown" hittest="false" text="" style='text-align: center; color: white; font-size: 12px; text-shadow: 0px 0px 3px 3.7 #000000FF; text-overflow: shrink; align: center center; font-family: monospaceNumbersFont; z-index: 2;'/>
+				<Panel id="cooldownoverlay" hittest="false" style="z-index: 1; align: center center; width: 100%; height: 100%; background-color: #000000; opacity: .8;"/>
+				<Panel id="nomana" hittest="false" style="transition-property: opacity; transition-delay: 0.0s; transition-duration: 0.6s; background-color:#060b65; opacity: .0; z-index: 0; width: 100%; height: 100%; align: center center;"/>
+			</DOTAItemImage>
+			<DOTAItemImage itemname="" style="height:24px;width:32px;">
+				<Label style='color:white; align: right bottom; z-index: 2; text-shadow: 0px 0px 3px 3.7 #000000FF; font-family: monospaceNumbersFont; text-overflow: shrink; text-align: center;'/>
+				<Label id="cooldown" hittest="false" text="" style='text-align: center; color: white; font-size: 12px; text-shadow: 0px 0px 3px 3.7 #000000FF; text-overflow: shrink; align: center center; font-family: monospaceNumbersFont; z-index: 2;'/>
+				<Panel id="cooldownoverlay" hittest="false" style="z-index: 1; align: center center; width: 100%; height: 100%; background-color: #000000; opacity: .8;"/>
+				<Panel id="nomana" hittest="false" style="transition-property: opacity; transition-delay: 0.0s; transition-duration: 0.6s; background-color:#060b65; opacity: .0; z-index: 0; width: 100%; height: 100%; align: center center;"/>
+			</DOTAItemImage>
+		</Panel>
+		<Panel style="width:100%;height:24px;flow-children:right;">
+			<DOTAHeroImage heroname="" style="width:40px;height:24px;"/>
+			<DOTAItemImage itemname="" style="height:24px;width:32px;">
+				<Label style='color:white; align: right bottom; z-index: 2; text-shadow: 0px 0px 3px 3.7 #000000FF; font-family: monospaceNumbersFont; text-overflow: shrink; text-align: center;'/>
+				<Label id="cooldown" hittest="false" text="" style='text-align: center; color: white; font-size: 12px; text-shadow: 0px 0px 3px 3.7 #000000FF; text-overflow: shrink; align: center center; font-family: monospaceNumbersFont; z-index: 2;'/>
+				<Panel id="cooldownoverlay" hittest="false" style="z-index: 1; align: center center; width: 100%; height: 100%; background-color: #000000; opacity: .8;"/>
+				<Panel id="nomana" hittest="false" style="transition-property: opacity; transition-delay: 0.0s; transition-duration: 0.6s; background-color:#060b65; opacity: .0; z-index: 0; width: 100%; height: 100%; align: center center;"/>
+			</DOTAItemImage>
+			<DOTAItemImage itemname="" style="height:24px;width:32px;">
+				<Label style='color:white; align: right bottom; z-index: 2; text-shadow: 0px 0px 3px 3.7 #000000FF; font-family: monospaceNumbersFont; text-overflow: shrink; text-align: center;'/>
+				<Label id="cooldown" hittest="false" text="" style='text-align: center; color: white; font-size: 12px; text-shadow: 0px 0px 3px 3.7 #000000FF; text-overflow: shrink; align: center center; font-family: monospaceNumbersFont; z-index: 2;'/>
+				<Panel id="cooldownoverlay" hittest="false" style="z-index: 1; align: center center; width: 100%; height: 100%; background-color: #000000; opacity: .8;"/>
+				<Panel id="nomana" hittest="false" style="transition-property: opacity; transition-delay: 0.0s; transition-duration: 0.6s; background-color:#060b65; opacity: .0; z-index: 0; width: 100%; height: 100%; align: center center;"/>
+			</DOTAItemImage>
+			<DOTAItemImage itemname="" style="height:24px;width:32px;">
+				<Label style='color:white; align: right bottom; z-index: 2; text-shadow: 0px 0px 3px 3.7 #000000FF; font-family: monospaceNumbersFont; text-overflow: shrink; text-align: center;'/>
+				<Label id="cooldown" hittest="false" text="" style='text-align: center; color: white; font-size: 12px; text-shadow: 0px 0px 3px 3.7 #000000FF; text-overflow: shrink; align: center center; font-family: monospaceNumbersFont; z-index: 2;'/>
+				<Panel id="cooldownoverlay" hittest="false" style="z-index: 1; align: center center; width: 100%; height: 100%; background-color: #000000; opacity: .8;"/>
+				<Panel id="nomana" hittest="false" style="transition-property: opacity; transition-delay: 0.0s; transition-duration: 0.6s; background-color:#060b65; opacity: .0; z-index: 0; width: 100%; height: 100%; align: center center;"/>
+			</DOTAItemImage>
+			<DOTAItemImage itemname="" style="height:24px;width:32px;">
+				<Label style='color:white; align: right bottom; z-index: 2; text-shadow: 0px 0px 3px 3.7 #000000FF; font-family: monospaceNumbersFont; text-overflow: shrink; text-align: center;'/>
+				<Label id="cooldown" hittest="false" text="" style='text-align: center; color: white; font-size: 12px; text-shadow: 0px 0px 3px 3.7 #000000FF; text-overflow: shrink; align: center center; font-family: monospaceNumbersFont; z-index: 2;'/>
+				<Panel id="cooldownoverlay" hittest="false" style="z-index: 1; align: center center; width: 100%; height: 100%; background-color: #000000; opacity: .8;"/>
+				<Panel id="nomana" hittest="false" style="transition-property: opacity; transition-delay: 0.0s; transition-duration: 0.6s; background-color:#060b65; opacity: .0; z-index: 0; width: 100%; height: 100%; align: center center;"/>
+			</DOTAItemImage>
+			<DOTAItemImage itemname="" style="height:24px;width:32px;">
+				<Label style='color:white; align: right bottom; z-index: 2; text-shadow: 0px 0px 3px 3.7 #000000FF; font-family: monospaceNumbersFont; text-overflow: shrink; text-align: center;'/>
+				<Label id="cooldown" hittest="false" text="" style='text-align: center; color: white; font-size: 12px; text-shadow: 0px 0px 3px 3.7 #000000FF; text-overflow: shrink; align: center center; font-family: monospaceNumbersFont; z-index: 2;'/>
+				<Panel id="cooldownoverlay" hittest="false" style="z-index: 1; align: center center; width: 100%; height: 100%; background-color: #000000; opacity: .8;"/>
+				<Panel id="nomana" hittest="false" style="transition-property: opacity; transition-delay: 0.0s; transition-duration: 0.6s; background-color:#060b65; opacity: .0; z-index: 0; width: 100%; height: 100%; align: center center;"/>
+			</DOTAItemImage>
+			<DOTAItemImage itemname="" style="height:24px;width:32px;">
+				<Label style='color:white; align: right bottom; z-index: 2; text-shadow: 0px 0px 3px 3.7 #000000FF; font-family: monospaceNumbersFont; text-overflow: shrink; text-align: center;'/>
+				<Label id="cooldown" hittest="false" text="" style='text-align: center; color: white; font-size: 12px; text-shadow: 0px 0px 3px 3.7 #000000FF; text-overflow: shrink; align: center center; font-family: monospaceNumbersFont; z-index: 2;'/>
+				<Panel id="cooldownoverlay" hittest="false" style="z-index: 1; align: center center; width: 100%; height: 100%; background-color: #000000; opacity: .8;"/>
+				<Panel id="nomana" hittest="false" style="transition-property: opacity; transition-delay: 0.0s; transition-duration: 0.6s; background-color:#060b65; opacity: .0; z-index: 0; width: 100%; height: 100%; align: center center;"/>
+			</DOTAItemImage>
+		</Panel>
+		<Panel style="width:100%;height:24px;flow-children:right;">
+			<DOTAHeroImage heroname="" style="width:40px;height:24px;"/>
+			<DOTAItemImage itemname="" style="height:24px;width:32px;">
+				<Label style='color:white; align: right bottom; z-index: 2; text-shadow: 0px 0px 3px 3.7 #000000FF; font-family: monospaceNumbersFont; text-overflow: shrink; text-align: center;'/>
+				<Label id="cooldown" hittest="false" text="" style='text-align: center; color: white; font-size: 12px; text-shadow: 0px 0px 3px 3.7 #000000FF; text-overflow: shrink; align: center center; font-family: monospaceNumbersFont; z-index: 2;'/>
+				<Panel id="cooldownoverlay" hittest="false" style="z-index: 1; align: center center; width: 100%; height: 100%; background-color: #000000; opacity: .8;"/>
+				<Panel id="nomana" hittest="false" style="transition-property: opacity; transition-delay: 0.0s; transition-duration: 0.6s; background-color:#060b65; opacity: .0; z-index: 0; width: 100%; height: 100%; align: center center;"/>
+			</DOTAItemImage>
+			<DOTAItemImage itemname="" style="height:24px;width:32px;">
+				<Label style='color:white; align: right bottom; z-index: 2; text-shadow: 0px 0px 3px 3.7 #000000FF; font-family: monospaceNumbersFont; text-overflow: shrink; text-align: center;'/>
+				<Label id="cooldown" hittest="false" text="" style='text-align: center; color: white; font-size: 12px; text-shadow: 0px 0px 3px 3.7 #000000FF; text-overflow: shrink; align: center center; font-family: monospaceNumbersFont; z-index: 2;'/>
+				<Panel id="cooldownoverlay" hittest="false" style="z-index: 1; align: center center; width: 100%; height: 100%; background-color: #000000; opacity: .8;"/>
+				<Panel id="nomana" hittest="false" style="transition-property: opacity; transition-delay: 0.0s; transition-duration: 0.6s; background-color:#060b65; opacity: .0; z-index: 0; width: 100%; height: 100%; align: center center;"/>
+			</DOTAItemImage>
+			<DOTAItemImage itemname="" style="height:24px;width:32px;">
+				<Label style='color:white; align: right bottom; z-index: 2; text-shadow: 0px 0px 3px 3.7 #000000FF; font-family: monospaceNumbersFont; text-overflow: shrink; text-align: center;'/>
+				<Label id="cooldown" hittest="false" text="" style='text-align: center; color: white; font-size: 12px; text-shadow: 0px 0px 3px 3.7 #000000FF; text-overflow: shrink; align: center center; font-family: monospaceNumbersFont; z-index: 2;'/>
+				<Panel id="cooldownoverlay" hittest="false" style="z-index: 1; align: center center; width: 100%; height: 100%; background-color: #000000; opacity: .8;"/>
+				<Panel id="nomana" hittest="false" style="transition-property: opacity; transition-delay: 0.0s; transition-duration: 0.6s; background-color:#060b65; opacity: .0; z-index: 0; width: 100%; height: 100%; align: center center;"/>
+			</DOTAItemImage>
+			<DOTAItemImage itemname="" style="height:24px;width:32px;">
+				<Label style='color:white; align: right bottom; z-index: 2; text-shadow: 0px 0px 3px 3.7 #000000FF; font-family: monospaceNumbersFont; text-overflow: shrink; text-align: center;'/>
+				<Label id="cooldown" hittest="false" text="" style='text-align: center; color: white; font-size: 12px; text-shadow: 0px 0px 3px 3.7 #000000FF; text-overflow: shrink; align: center center; font-family: monospaceNumbersFont; z-index: 2;'/>
+				<Panel id="cooldownoverlay" hittest="false" style="z-index: 1; align: center center; width: 100%; height: 100%; background-color: #000000; opacity: .8;"/>
+				<Panel id="nomana" hittest="false" style="transition-property: opacity; transition-delay: 0.0s; transition-duration: 0.6s; background-color:#060b65; opacity: .0; z-index: 0; width: 100%; height: 100%; align: center center;"/>
+			</DOTAItemImage>
+			<DOTAItemImage itemname="" style="height:24px;width:32px;">
+				<Label style='color:white; align: right bottom; z-index: 2; text-shadow: 0px 0px 3px 3.7 #000000FF; font-family: monospaceNumbersFont; text-overflow: shrink; text-align: center;'/>
+				<Label id="cooldown" hittest="false" text="" style='text-align: center; color: white; font-size: 12px; text-shadow: 0px 0px 3px 3.7 #000000FF; text-overflow: shrink; align: center center; font-family: monospaceNumbersFont; z-index: 2;'/>
+				<Panel id="cooldownoverlay" hittest="false" style="z-index: 1; align: center center; width: 100%; height: 100%; background-color: #000000; opacity: .8;"/>
+				<Panel id="nomana" hittest="false" style="transition-property: opacity; transition-delay: 0.0s; transition-duration: 0.6s; background-color:#060b65; opacity: .0; z-index: 0; width: 100%; height: 100%; align: center center;"/>
+			</DOTAItemImage>
+			<DOTAItemImage itemname="" style="height:24px;width:32px;">
+				<Label style='color:white; align: right bottom; z-index: 2; text-shadow: 0px 0px 3px 3.7 #000000FF; font-family: monospaceNumbersFont; text-overflow: shrink; text-align: center;'/>
+				<Label id="cooldown" hittest="false" text="" style='text-align: center; color: white; font-size: 12px; text-shadow: 0px 0px 3px 3.7 #000000FF; text-overflow: shrink; align: center center; font-family: monospaceNumbersFont; z-index: 2;'/>
+				<Panel id="cooldownoverlay" hittest="false" style="z-index: 1; align: center center; width: 100%; height: 100%; background-color: #000000; opacity: .8;"/>
+				<Panel id="nomana" hittest="false" style="transition-property: opacity; transition-delay: 0.0s; transition-duration: 0.6s; background-color:#060b65; opacity: .0; z-index: 0; width: 100%; height: 100%; align: center center;"/>
+			</DOTAItemImage>
+		</Panel>
+	</Panel>
+</root>

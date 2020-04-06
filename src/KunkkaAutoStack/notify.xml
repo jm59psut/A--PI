@@ -1,0 +1,15 @@
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />    
+		<include src="s2r://panorama/styles/popups/popups_shared.vcss_c" />
+	</styles>
+
+	<Panel class="ItemsPanel1" style="
+position: 83% 0 0; width: 17%; height: 12%; 
+background-size: auto 100%; background-position: 50% 0%; background-repeat: no-repeat; 
+background-image: url('s2r://panorama/images/textures/popup_rock_bg_psd.vtex')
+box-shadow: #83d79500 0px 0px 0px 0px;
+flow-children: down; background-color: black; vertical-align: center;">
+
+	</Panel>
+</root>

@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"target": "esnext",
+		"module": "none",
+		"noEmit": true
+	},
+	"include": [
+		"*.d.ts",
+		"src/*/*.ts"
+	],
+	"exclude": [
+		"node_modules",
+		"src_compiled"
+	]
+}
