@@ -23,7 +23,7 @@ Windows:
 <img src="https://i.imgur.com/siQyYnT.png">
 
 ```
-7)Open Dota 2 Match and Enjoy!
+8)Open Dota 2 Match and Enjoy!
 ```
 ## Usage example
 
@@ -37,9 +37,14 @@ This is the look of the Script when loaded:
 <img src="https://i.imgur.com/5c5tRx0.png">
 
 
-The GUI is very limited (it has only on/off button), only just a list of toggleable scripts.
+The GUI is very limited (it has only on/off button), only just a list of toggleable scripts
 
-
+## Developing New Scripts
+You will need Visual Studio Code or other Text Editor
+To Develop New Scripts just open the folder src from the fodler and start writing new body.ts file inside
+another fodler for example src/testscript/body.ts
+After developing just rerun build.bat
+and restart the script.
 
 ## Release History
 
