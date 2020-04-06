@@ -17,6 +17,8 @@ Windows:
 5)Build the scripts pressing Build.bat
 6)After Building Scripts execute start.bat (should look like this bellow)
 ```
+
+<img src="https://i.imgur.com/0uXViww.png">
 <img src="https://i.imgur.com/siQyYnT.png">
 
 ```
