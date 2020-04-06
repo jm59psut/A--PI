@@ -1,12 +1,9 @@
 # Corona JS Hack
 > Fully working Dota 2 Script (Free and Opensource API)
 <img src="https://i.imgur.com/9Lgj8AF.png">
-[![Version][0.2.0]
-[![Build Status][travis-image]][travis-url]
 
 One to two paragraph statement about your product and what it does.
 
-![](header.png)
 
 ## Installation
 
