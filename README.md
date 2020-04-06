@@ -2,7 +2,7 @@
 > Fully working Dota 2 Script (Free and Opensource API)
 <img src="https://i.imgur.com/9Lgj8AF.png">
 
-One to two paragraph statement about your product and what it does.
+Fully implemented JS API for Dota 2 for Windows Platform
 
 
 ## Installation
@@ -45,14 +45,13 @@ The GUI is very limited (it has only on/off button), only just a list of togglea
 
 ## Meta
 
-Your Name – [@YourTwitter](https://twitter.com/dbader_org) – YourEmail@example.com
 
 Distributed under the GNU GPL v3 license. See ``LICENSE`` for more information.
 
 
 ## Contributing
 
-1. Fork it (<https://github.com/yourname/yourproject/fork>)
+1. Fork it (<https://github.com/snajdovski/Dota-2-Hacks-Open-Source-JS-API-/fork>)
 2. Create your feature branch (`git checkout -b feature/fooBar`)
 3. Commit your changes (`git commit -am 'Add some fooBar'`)
 4. Push to the branch (`git push origin feature/fooBar`)
