@@ -42,9 +42,41 @@ The GUI is very limited (it has only on/off button), only just a list of togglea
 ## Developing New Scripts
 You will need Visual Studio Code or other Text Editor
 To Develop New Scripts just open the folder src from the fodler and start writing new body.ts file inside
-another fodler for example src/testscript/body.ts
+another folder for example src/testscript/body.ts
 After developing just rerun build.bat
 and restart the script.
+## Script List
+*Tower Range
+*TrueSight Detector
+*Ability Range
+*Ability Range type 2
+*ANTI AFK
+*AntiInitiation
+*AntiInitiation 2
+*AutoArmlet (doesn't work for now)
+*Auto Deward (after newest update its broken)
+*Auto Bottle
+*Dazzle AutoGrave (Too much lag probably some minor issue DO NOT USE)
+*AutoPhase Boots
+*Auto Steal
+*Auto Unagro
+*Chat spammer
+*Blink Range
+*FOW Fix (this file is patched by valve so will not work with patching some DLL's
+*Enemy ManaBars
+*Exp Rsange
+*Ez Procast
+*Ez Sunstrike
+*Ez Techies Auto (Auto using of remote mines and force staff)
+*EZ Visage (saves fammiliar if low health)
+*Item Panel
+*Jungle Maphack
+*lasthutMarker
+*Wardbuytroll
+*WK abuse
+*many more...
+
+
 
 ## Release History
 
