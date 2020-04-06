@@ -13,7 +13,13 @@ Windows:
 1)You need to install Node.js first
 2)Extract the zip file somewhere like on your Desktop
 3)Copy the folder called corona and put it in your DOta 2 Steam game folder, example: C:Program File\Steam\steamapps\common\dota 2 beta\game
-4)Make sure the vpk is on the latest version with Dota 2 (if depricated dota 2 will crash with hud error)
+4)Edit gameinfo.gi 
+add this line inside Serach Paths like this:
+SearchPaths{
+Game corona
+...
+}
+Make sure the vpk is on the latest version with Dota 2 (if depricated dota 2 will crash with hud error)
 5)Build the scripts pressing Build.bat
 6)After Building Scripts execute start.bat (should look like this bellow)
 ```
