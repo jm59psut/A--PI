@@ -46,34 +46,35 @@ another folder for example src/testscript/body.ts
 After developing just rerun build.bat
 and restart the script.
 ## Script List
-*Tower Range
-*TrueSight Detector
-*Ability Range
-*Ability Range type 2
-*ANTI AFK
-*AntiInitiation
-*AntiInitiation 2
-*AutoArmlet (doesn't work for now)
-*Auto Deward (after newest update its broken)
-*Auto Bottle
-*Dazzle AutoGrave (Too much lag probably some minor issue DO NOT USE)
-*AutoPhase Boots
-*Auto Steal
-*Auto Unagro
-*Chat spammer
-*Blink Range
-*FOW Fix (this file is patched by valve so will not work with patching some DLL's
-*Enemy ManaBars
-*Exp Rsange
-*Ez Procast
-*Ez Sunstrike
-*Ez Techies Auto (Auto using of remote mines and force staff)
-*EZ Visage (saves fammiliar if low health)
-*Item Panel
-*Jungle Maphack
-*lasthutMarker
-*Wardbuytroll
-*WK abuse
+1)Tower Range
+2)TrueSight Detector
+3)Ability Range
+4)Ability Range type 2
+5)ANTI AFK
+6)AntiInitiation
+7)AntiInitiation 2
+8)AutoArmlet (doesn't work for now)
+9)Auto Deward (after newest update its broken)
+10)Auto Bottle
+11)Dazzle AutoGrave (Too much lag probably some minor issue DO NOT USE)
+12)AutoPhase Boots
+13)Auto Steal
+14)Auto Unagro
+15)Chat spammer
+16)Blink Range
+17)Oracle Auto Save (same as Dazzle auto save DO NOT USE IT UNSTABLE)
+18)FOW Fix (this file is patched by valve so will not work with patching some DLL's
+19)Enemy ManaBars
+20)Exp Rsange
+21)Ez Procast
+22)Ez Sunstrike
+23)Ez Techies Auto (Auto using of remote mines and force staff)
+24)EZ Visage (saves fammiliar if low health)
+25)Item Panel
+26)Jungle Maphack
+27)lasthutMarker
+28)Wardbuytroll
+29)WK abuse
 *many more...
 
 
