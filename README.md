@@ -16,14 +16,13 @@ Windows:
 4)Make sure the vpk is on the latest version with Dota 2 (if depricated dota 2 will crash with hud error)
 5)Build the scripts pressing Build.bat
 6)After Building Scripts execute start.bat (should look like this bellow)
-7)Put "__init.js" in Menu folder located in src_compiled\Menu (you can find __init.js in the folder that you extracted)
 ```
 
 <img src="https://i.imgur.com/0uXViww.png">
 <img src="https://i.imgur.com/siQyYnT.png">
 
 ```
-8)Open Dota 2 Match and Enjoy!
+7)Open Dota 2 DEMO Match and Enjoy!
 ```
 ## Usage example
 
