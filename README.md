@@ -15,14 +15,15 @@ Windows:
 3)Copy the folder called corona and put it in your DOta 2 Steam game folder, example: C:Program File\Steam\steamapps\common\dota 2 beta\game
 4)Make sure the vpk is on the latest version with Dota 2 (if depricated dota 2 will crash with hud error)
 5)Build the scripts pressing Build.bat
-6)After Building Scripts execute start.bat
+6)After Building Scripts execute start.bat (should look like this bellow)
+```
+<img src="https:/https://i.imgur.com/siQyYnT.pngg">
+```
 7)Open Dota 2 Match and Enjoy!
 ```
 ## Usage example
 
-A few motivating and useful examples of how your product can be used. Spice this up with code blocks and potentially more screenshots.
-
-_For more examples and usage, please refer to the [Wiki][wiki]._
+Make Sure that the Dota 2 Terminal is Open Type in bind Home __TogglePannel
 
 ## Development setup
 
