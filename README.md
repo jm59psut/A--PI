@@ -24,11 +24,15 @@ Windows:
 ```
 ## Usage example
 
-Make Sure that the Dota 2 Terminal is Open Type in bind Home __TogglePannel
+Make Sure that the Dota 2 Terminal is Open, Type in "bind Home __TogglePannel"
 
 You can write more commands like this just press _ in Terminal and it will show all the avaibvle and implemented API commands and scripts
 
 ## GUI
+This is the look of the Script when loaded:
+
+<img src="https://i.imgur.com/5c5tRx0.png">
+
 
 The GUI is very limited (it has only on/off button), only just a list of toggleable scripts.
 
