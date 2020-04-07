@@ -2,7 +2,7 @@
 > Fully working Dota 2 Script (Free and Opensource API)
 <img src="https://i.imgur.com/9Lgj8AF.png">
 
-Fully implemented JS API for Dota 2 for Windows Platform
+Fully implemented JS Panorma API for Dota 2 for Windows Platform
 
 
 ## Installation
@@ -143,7 +143,8 @@ Distributed under the GNU GPL v3 license. See ``LICENSE`` for more information.
 To me as an Author and other people from the community (Moofmonkey for the API and most of the scripts base)
 
 ## Compatability
-This script should be compatable with other script logic written in JS.
+Windows only for now.
+This script should be compatable with other script logic written for D2JS.
 
 ## Contributing
 
