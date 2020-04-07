@@ -13,12 +13,31 @@ Windows:
 1)You need to install Node.js first
 2)Extract the zip file somewhere like on your Desktop
 3)Copy the folder called corona and put it in your DOta 2 Steam game folder, example: C:Program File\Steam\steamapps\common\dota 2 beta\game
-4)Edit gameinfo.gi 
+4)Edit gameinfo.gi (inside dota folder)
 add this line inside Serach Paths like this:
-SearchPaths{
-Game corona
-...
-}
+SearchPaths
+		{
+			// These are optional language paths. They must be mounted first, which is why there are first in the list.
+			// *LANGUAGE* will be replaced with the actual language name. If not running a specific language, these paths will not be mounted
+			Game_Language		dota_*LANGUAGE*
+
+			// These are optional low-violence paths. They will only get mounted if you're in a low-violence mode.
+			Game_LowViolence	dota_lv
+					
+			Game				corona
+			
+				
+			Game				dota
+			Game				core
+
+			Mod					dota
+
+			AddonRoot			dota_addons
+
+			// Note: addon content is included in publiccontent by default.
+			PublicContent		dota_core
+			PublicContent		core
+		}
 Make sure the vpk is on the latest version with Dota 2 (if depricated dota 2 will crash with hud error)
 5)Build the scripts pressing Build.bat
 6)After Building Scripts execute start.bat (should look like this bellow)
@@ -34,7 +53,7 @@ Make sure the vpk is on the latest version with Dota 2 (if depricated dota 2 wil
 
 Make Sure that the Dota 2 Terminal is Open, Type in "bind Home __TogglePannel"
 
-You can write more commands like this just press _ in Terminal and it will show all the avaibvle and implemented API commands and scripts
+You can write more commands like this just press _ in Terminal and it will show all the available and implemented API commands and scripts
 
 ## GUI
 This is the look of the Script when loaded:
@@ -43,6 +62,7 @@ This is the look of the Script when loaded:
 
 
 The GUI is very limited (it has only on/off button), only just a list of toggleable scripts
+There is also Output log that informs about the script state
 
 ## Developing New Scripts
 You will need Visual Studio Code or other Text Editor
@@ -85,7 +105,29 @@ and start.bat
 30)Skill Alert
 *many more...
 ```
+## FAQ
+```
+Q:I don't see the script menu
+A:Make sure that gameinfo.gi points to the corona folder
 
+Q:My game lags when I enable all the scripts
+A:The scripts are not optimised for using them all of them at once, this includes Antiinitiation,AutoSteal,JugleMaphack,Last Hit.
+
+Q:I see hud error, what can I do to fix it?
+
+A:Download Dota 2 Workshop Tools and rebuild the hud_reborn file.
+1)Download GCFScape
+2)Open pak-1_dir.vpk
+3)Copy root/panorama/layout/hud/hud_reborn.vxml_c file
+4)Open it with notepad++
+5)Copy the contents inside script tags (FunctionInit())
+6)Download new hud_reborn.xml file from github tracker for dota 2 and rebuild it with Workshop Tools
+7)Rebuild the vpk file with vpk.exe builder (Serch it around google)
+8)Replace the vpk
+9)Start the scripts and dota 2
+10)DONE
+
+```
 
 ## Release History
 
