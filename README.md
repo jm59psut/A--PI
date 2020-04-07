@@ -140,7 +140,7 @@ A:Download Dota 2 Workshop Tools and rebuild the hud_reborn file.
 Distributed under the GNU GPL v3 license. See ``LICENSE`` for more information.
 
 ## Credits
-To me as an Author and other people from the community
+To me as an Author and other people from the community (Moofmonkey for the API and most of the scripts base)
 
 ## Compatability
 This script should be compatable with other script logic written in JS.
