@@ -66,11 +66,13 @@ There is also Output log that informs about the script state
 
 ## Developing New Scripts
 You will need Visual Studio Code or other Text Editor
+```
 To Develop New Scripts:
 1)Open the folder src in Visual Studio Code
 2)Start writing new body.ts file inside another folder for example src/testscript/body.ts
 After developing just rerun build.bat
 and start.bat
+```
 ## Script List
 ```
 1)Tower Range
