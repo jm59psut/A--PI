@@ -64,6 +64,11 @@ This is the look of the Script when loaded:
 The GUI is very limited (it has only on/off button), only just a list of toggleable scripts
 There is also Output log that informs about the script state
 
+## IN PROGRESS
+```
+Working on adding slider and keybinder in the UI
+```
+
 ## Developing New Scripts
 You will need Visual Studio Code or other Text Editor
 ```
