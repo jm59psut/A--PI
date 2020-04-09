@@ -139,6 +139,16 @@ A:Download Dota 2 Workshop Tools and rebuild the hud_reborn file.
 
 Distributed under the GNU GPL v3 license. See ``LICENSE`` for more information.
 
+## TO DO
+```
+1)Rework Some Scripts for better performance (make them smaller in size really helps)
+2)Invoker Panel
+3)Menu UI sliders
+4)Key Binder UI
+5)More Combos for heroes
+6)C++ implementation of some functions like maphacks
+7)Ward Tracker
+```
 ## Credits
 To me as an Author and other people from the community (Moofmonkey for the API and most of the scripts base)
 
