@@ -2,7 +2,7 @@
 > Fully working Dota 2 Script (Free and Opensource API)
 <img src="https://i.imgur.com/9Lgj8AF.png">
 
-Fully implemented JS API for Dota 2 for Windows Platform
+Fully implemented JS Panorma API for Dota 2 for Windows Platform
 
 
 ## Installation
@@ -66,11 +66,13 @@ There is also Output log that informs about the script state
 
 ## Developing New Scripts
 You will need Visual Studio Code or other Text Editor
+```
 To Develop New Scripts:
 1)Open the folder src in Visual Studio Code
 2)Start writing new body.ts file inside another folder for example src/testscript/body.ts
 After developing just rerun build.bat
 and start.bat
+```
 ## Script List
 ```
 1)Tower Range
@@ -139,11 +141,23 @@ A:Download Dota 2 Workshop Tools and rebuild the hud_reborn file.
 
 Distributed under the GNU GPL v3 license. See ``LICENSE`` for more information.
 
+## TO DO
+```
+0)Must rework the UI!!!!
+1)Rework Some Scripts for better performance (make them smaller in size really helps)
+2)Invoker Panel
+3)Menu UI sliders
+4)Key Binder UI
+5)More Combos for heroes
+6)C++ implementation of some functions like maphacks
+7)Ward Tracker
+```
 ## Credits
 To me as an Author and other people from the community (Moofmonkey for the API and most of the scripts base)
 
 ## Compatability
-This script should be compatable with other script logic written in JS.
+Windows only for now.
+This script should be compatable with other script logic written for D2JS.
 
 ## Contributing
 
