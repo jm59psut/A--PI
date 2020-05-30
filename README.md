@@ -121,10 +121,11 @@ Q:My game lags when I enable all the scripts
 A:The scripts are not optimised for using them all of them at once, this includes Antiinitiation,AutoSteal,JugleMaphack,Last Hit.
 
 Q:I see hud error, what can I do to fix it?
-
+(Method Changed as of 2020)
 A:Download Dota 2 Workshop Tools and rebuild the hud_reborn file.
 1)Download GCFScape
 2)Open pak-1_dir.vpk
+(When copying hud_reborn.xml to the new file to compile inside workshop tools you need to place it into custom_game folder instead of the usual path)
 3)Copy root/panorama/layout/hud/hud_reborn.vxml_c file
 4)Open it with notepad++
 5)Copy the contents inside script tags (FunctionInit())
