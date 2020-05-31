@@ -159,7 +159,7 @@ Distributed under the GNU GPL v3 license. See ``LICENSE`` for more information.
 7)Ward Tracker
 ```
 ## Credits
-To me as an Author and other people from the community (Moofmonkey for the API and most of the scripts base)
+To me as an Author and other people from the community (snajdovski for the API and most of the scripts base)
 
 ## Compatability
 Windows only for now.

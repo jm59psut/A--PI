@@ -1,5 +1,5 @@
 // made by 12548
-// modified and decorated by moofMonkey
+// modified and decorated by snajdovski
 
 declare var $: $;
 declare var panorama: $;

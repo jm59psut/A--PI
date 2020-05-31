@@ -7,9 +7,9 @@
 		"clean": "del /S /Q build_state.json",
 		"build_clean": "npm run-script clean && npm run-script build"
 	},
-	"author": "moofMonkey",
+	"author": "snajdovski",
 	"contributors": [
-		"moofMonkey",
+		"snajdovski",
 		"EmptyCrew",
 		"I_GRIN_I"
 	],
