@@ -1,5 +1,5 @@
 # Corona JS Hack
-> Fully working Dota 2 Script (Free and Opensource API)
+> Fully working Dota 2 Hack/Script/Cheats (Free and Opensource API)
 <img src="https://i.imgur.com/9Lgj8AF.png">
 
 Fully implemented JS Panorma API for Dota 2 for Windows Platform
