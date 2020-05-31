@@ -1,21 +1,21 @@
 /*!
  * Created on Sun Mar 04 2018
  *
- * This file is part of Fusion.
- * Copyright (c) 2018 Fusion
+ * This file is part of Corona.
+ * Copyright (c) 2018 Corona
  *
- * Fusion is free software: you can redistribute it and/or modify
+ * Corona is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * Fusion is distributed in the hope that it will be useful,
+ * Corona is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with Fusion.  If not, see <http://www.gnu.org/licenses/>.
+ * along with Corona.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 var abils: AutoStealEntry[] = [
@@ -25,7 +25,7 @@ var abils: AutoStealEntry[] = [
 			abilDamageF: (abil: Ability, entFrom: Entity, entTo: Entity): number => {
 				var kill_threshold = abil.SpecialValueFor("kill_threshold"),
 					damage = entTo.CalculateDamage(abil.SpecialValueFor("damage"), DAMAGE_TYPES.DAMAGE_TYPE_MAGICAL),
-					hp = entTo.HealthAfter(abil.CastPoint / Fusion.MyTick)
+					hp = entTo.HealthAfter(abil.CastPoint / Corona.MyTick)
 				
 				return hp > kill_threshold ? damage : kill_threshold
 			}
@@ -196,7 +196,7 @@ var abils: AutoStealEntry[] = [
 					return 0
 				var elapsed = Math.min(buff.ElapsedTime, brew_time) - min_stun,
 					charged = Math.max(elapsed, 0) / brew_time
-				if(Buffs.GetElapsedTime(entFrom, buff) > brew_explosion - (abil.CastPoint + Fusion.MyTick * 1.5))
+				if(Buffs.GetElapsedTime(entFrom, buff) > brew_explosion - (abil.CastPoint + Corona.MyTick * 1.5))
 					return 99999999 // we don't need to be self-stunned, ye?
 
 				return entTo.CalculateDamage(charged * max_damage, DAMAGE_TYPES.DAMAGE_TYPE_PHYSICAL)
@@ -419,7 +419,7 @@ var abils: AutoStealEntry[] = [
 					dist = entFrom.RangeToUnit(entTo),
 					time = Abilities.GetCastPoint(abil) + dist / abil.SpecialValueFor("ball_lightning_move_speed"),
 					point1 = entTo.VelocityWaypoint(time),
-					point2 = Fusion.ExtendVector(point1, entFrom.AbsOrigin, aoe),
+					point2 = Corona.ExtendVector(point1, entFrom.AbsOrigin, aoe),
 					point
 				if(entTo.CalculateDamage(point1.PointDistance(entFrom.AbsOrigin) * Abilities.GetAbilityDamage(abil), DAMAGE_TYPES.DAMAGE_TYPE_MAGICAL) > entTo.HealthAfter(time * 30))
 					point = point1
@@ -516,20 +516,20 @@ function AutoSteal(): void {
 			var damage = or(abilData.abilDamageF, getDamage)(abil, MyEnt, ent)
 			if(zuus_passive !== undefined && MyEnt.IsEntityInRange(ent, zuus_passive.CastRange))
 				damage += (abil.SpecialValueFor("damage_health_pct") + (zuus_talent !== undefined ? zuus_talent.Level === 0 ? 0 : zuus_talent.SpecialValueFor("value") : 0)) / 100 * ent.MaxHealth
-			if(damage < ent.HealthAfter(abil.CastPoint / Fusion.MyTick))
+			if(damage < ent.HealthAfter(abil.CastPoint / Corona.MyTick))
 				return false
 
 			if((blink_flag = !(flag = !need_blink))) {
 				Orders.CastPosition(MyEnt, blink, ent.AbsOrigin.ExtendVector(MyEnt.AbsOrigin, range - 100), false)
-				$.Schedule(blink.CastPoint + Fusion.MyTick, () => blink_flag = false)
+				$.Schedule(blink.CastPoint + Corona.MyTick, () => blink_flag = false)
 			} else {
 				flags[ent.id] = true
-				$.Schedule(abilData.abilDelayF ? abilData.abilDelayF(abil, MyEnt, ent) + abil.CastPoint + Fusion.MyTick * 2 : 0, () => flags[ent.id] = false)
+				$.Schedule(abilData.abilDelayF ? abilData.abilDelayF(abil, MyEnt, ent) + abil.CastPoint + Corona.MyTick * 2 : 0, () => flags[ent.id] = false)
 				$.Schedule (
 					or (
 						or(abilData.abilCastF, Cast)(abil, MyEnt, ent),
 						abil.CastPoint
-					) + Fusion.MyTick,
+					) + Corona.MyTick,
 					() => flag = false
 				)
 			}
@@ -543,15 +543,15 @@ module = {
 	name: "Auto Steal",
 	onToggle: checkbox => {
 		if (checkbox.checked) {
-			Fusion.OnTick.push(AutoSteal)
+			Corona.OnTick.push(AutoSteal)
 			Utils.ScriptLogMsg("Script enabled: Auto Steal", "#00ff00")
 		} else {
-			Fusion.OnTick.remove(AutoSteal)
+			Corona.OnTick.remove(AutoSteal)
 			Utils.ScriptLogMsg("Script disabled: Auto Steal", "#ff0000")
 		}
 	},
 	onDestroy: () => {
 		abils.forEach(abilData => delete abilData.abil)
-		Fusion.OnTick.remove(AutoSteal)
+		Corona.OnTick.remove(AutoSteal)
 	}
 }

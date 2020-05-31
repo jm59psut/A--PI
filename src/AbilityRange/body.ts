@@ -1,36 +1,36 @@
 ﻿/*!
  * Created on Sun Mar 04 2018
  *
- * This file is part of Fusion.
- * Copyright (c) 2018 Fusion
+ * This file is part of Corona.
+ * Copyright (c) 2018 Corona
  *
- * Fusion is free software: you can redistribute it and/or modify
+ * Corona is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * Fusion is distributed in the hope that it will be useful,
+ * Corona is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with Fusion.  If not, see <http://www.gnu.org/licenses/>.
+ * along with Corona.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 function Destroy(): void {
-	if(Fusion.Panels.AbilityRange)
-		Fusion.Panels.AbilityRange.DeleteAsync(0)
-	delete Fusion.Panels.AbilityRange
+	if(Corona.Panels.AbilityRange)
+		Corona.Panels.AbilityRange.DeleteAsync(0)
+	delete Corona.Panels.AbilityRange
 	
-	if(Fusion.Subscribes.AbilityRange)
-		Fusion.Subscribes.AbilityRange.forEach(sub => GameEvents.Unsubscribe(sub)) // Optimize this line by native
-	Fusion.Subscribes.AbilityRange = []
+	if(Corona.Subscribes.AbilityRange)
+		Corona.Subscribes.AbilityRange.forEach(sub => GameEvents.Unsubscribe(sub)) // Optimize this line by native
+	Corona.Subscribes.AbilityRange = []
 
-	if(!Fusion.Particles.AbilityRange)
-		Fusion.Particles.AbilityRange = new Map<number, number>()
-	Fusion.Particles.AbilityRange.forEach(par => ParticleManager.DestroyParticleEffect(par))
-	Fusion.Particles.AbilityRange.clear()
+	if(!Corona.Particles.AbilityRange)
+		Corona.Particles.AbilityRange = new Map<number, number>()
+	Corona.Particles.AbilityRange.forEach(par => ParticleManager.DestroyParticleEffect(par))
+	Corona.Particles.AbilityRange.clear()
 }
 
 function SkillLearned(data: any): void {
@@ -38,13 +38,13 @@ function SkillLearned(data: any): void {
 		LearnedAbil = MyEnt.AbilityByName(data.abilityname)
 	if (!LearnedAbil || data.abilityname === "attribute_bonus")
 		return
-	if(!Fusion.Panels.AbilityRange.Children().some(panel => {
+	if(!Corona.Panels.AbilityRange.Children().some(panel => {
 		var abil = panel.GetAttributeInt("Skill", 0)
 
 		if(abil === LearnedAbil.id) {
 			if(panel.checked) {
-				ParticleManager.DestroyParticleEffect(Fusion.Particles.AbilityRange.get(abil), true)
-				Fusion.Particles.AbilityRange.set(abil, Utils.CreateCustomRange(MyEnt, abil.CastRange))
+				ParticleManager.DestroyParticleEffect(Corona.Particles.AbilityRange.get(abil), true)
+				Corona.Particles.AbilityRange.set(abil, Utils.CreateCustomRange(MyEnt, abil.CastRange))
 			}
 			return true
 		}
@@ -59,18 +59,18 @@ function chkboxpressed(panel: Panel): void {
 
 	Utils.InstallStyle(panel.Children()[0], `border: ${panel.checked ? "2px solid white" : 0}; box-shadow: ${panel.checked ? "0 0 10"  : "0 0 0"}px white`)
 	if(!panel.checked) {
-		ParticleManager.DestroyParticleEffect(Fusion.Particles.AbilityRange.get(abil), true)
-		Fusion.Particles.AbilityRange.delete(abil)
+		ParticleManager.DestroyParticleEffect(Corona.Particles.AbilityRange.get(abil), true)
+		Corona.Particles.AbilityRange.delete(abil)
 	} else
 	var par = ParticleManager.CreateParticle("particles/ui_mouseactions/range_display.vpcf", ParticleAttachment_t.PATTACH_ABSORIGIN_FOLLOW, MyEnt)
 		ParticleManager.SetParticleControl(par, 1, [abil.CastRange, 0, 0])
-		Fusion.Particles.AbilityRange.set(abil, par)
+		Corona.Particles.AbilityRange.set(abil, par)
 }
 
 function CreatePanel(abil: Ability): void {
 	if (!abil || abil.AbilityName === "attribute_bonus" || abil.CastRange <= 0)
 		return
-	var panel = $.CreatePanel("ToggleButton", Fusion.Panels.AbilityRange, "AbilityRangeSkill")
+	var panel = $.CreatePanel("ToggleButton", Corona.Panels.AbilityRange, "AbilityRangeSkill")
 	panel.BLoadLayoutFromString(`<root>\
 	<styles>\
 		<include src='s2r://panorama/styles/dotastyles.vcss_c'/>\
@@ -87,23 +87,23 @@ function CreatePanel(abil: Ability): void {
 function onToggleF(checkbox: Panel): void {
 	if (checkbox.checked) {
 		var MyEnt = EntityManager.MyEnt
-		Fusion.Panels.AbilityRange = $.CreatePanel("Panel", Fusion.Panels.Main, "AbilityRangePanel")
-		Fusion.Panels.AbilityRange.BLoadLayoutFromString("<root>\
+		Corona.Panels.AbilityRange = $.CreatePanel("Panel", Corona.Panels.Main, "AbilityRangePanel")
+		Corona.Panels.AbilityRange.BLoadLayoutFromString("<root>\
 	<Panel class='AbilityRangePanel' style='flow-children: down; background-color: #00000099; border-radius: 15px; padding: 10px 5px 5px 0px;'>\
 	</Panel>\
 </root>", false, false)
-		Utils.MovePanel(Fusion.Panels.AbilityRange, p => {
-			Fusion.Configs.AbilityRange.position = p.style.position
-			Fusion.SaveConfig("AbilityRange", Fusion.Configs.AbilityRange)
+		Utils.MovePanel(Corona.Panels.AbilityRange, p => {
+			Corona.Configs.AbilityRange.position = p.style.position
+			Corona.SaveConfig("AbilityRange", Corona.Configs.AbilityRange)
 		})
-		Fusion.GetConfig("AbilityRange").then(config => {
-			Fusion.Configs.AbilityRange = config
-			Fusion.Panels.AbilityRange.style.position = config.position
-			Fusion.Panels.AbilityRange.style.flowChildren = config.flow
+		Corona.GetConfig("AbilityRange").then(config => {
+			Corona.Configs.AbilityRange = config
+			Corona.Panels.AbilityRange.style.position = config.position
+			Corona.Panels.AbilityRange.style.flowChildren = config.flow
 		})
 		MyEnt.Abilities.forEach(CreatePanel)
-		Fusion.Subscribes.AbilityRange.learned_ability = GameEvents.Subscribe("dota_player_learned_ability", SkillLearned)
-		//Fusion.Subscribes.AbilityRange.inventory_changed = GameEvents.Subscribe("dota_inventory_changed", InventoryChanged) // just informs about inventory change, not about item.
+		Corona.Subscribes.AbilityRange.learned_ability = GameEvents.Subscribe("dota_player_learned_ability", SkillLearned)
+		//Corona.Subscribes.AbilityRange.inventory_changed = GameEvents.Subscribe("dota_inventory_changed", InventoryChanged) // just informs about inventory change, not about item.
 		Utils.ScriptLogMsg("Script enabled: AbilityRange", "#00ff00")
 	} else {
 		Destroy()
@@ -114,20 +114,20 @@ function onToggleF(checkbox: Panel): void {
 module = {
 	name: "Ability Range",
 	onPreload: (): void => {
-		if(Fusion.Commands.AbilityRange_Rotate)
+		if(Corona.Commands.AbilityRange_Rotate)
 			return
-		Fusion.Commands.AbilityRange_Rotate = () => {
-			if(!Fusion.Configs.AbilityRange) {
+		Corona.Commands.AbilityRange_Rotate = () => {
+			if(!Corona.Configs.AbilityRange) {
 				$.Msg("AbilityRange_Rotate", "Just... config aren't initialized.")
 				return
 			}
-			var panel = Fusion.Panels.AbilityRange
-			Fusion.Configs.AbilityRange.flow = panel.style.flowChildren = (panel.style.flowChildren === "right" ? "down"  : "right")
-			Fusion.SaveConfig("AbilityRange", Fusion.Configs.AbilityRange)
+			var panel = Corona.Panels.AbilityRange
+			Corona.Configs.AbilityRange.flow = panel.style.flowChildren = (panel.style.flowChildren === "right" ? "down"  : "right")
+			Corona.SaveConfig("AbilityRange", Corona.Configs.AbilityRange)
 		}
 	
-		Game.AddCommand("__AbilityRange_Rotate", Fusion.Commands.AbilityRange_Rotate, "", 0)
-		Game.AddCommand("__TogglePanel_AbilityRange", () => Fusion.Panels.AbilityRange.visible = !Fusion.Panels.AbilityRange.visible, "",0)
+		Game.AddCommand("__AbilityRange_Rotate", Corona.Commands.AbilityRange_Rotate, "", 0)
+		Game.AddCommand("__TogglePanel_AbilityRange", () => Corona.Panels.AbilityRange.visible = !Corona.Panels.AbilityRange.visible, "",0)
 		Destroy()
 	},
 	onToggle: onToggleF,

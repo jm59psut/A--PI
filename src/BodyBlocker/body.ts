@@ -1,21 +1,21 @@
 /*!
  * Created on Sun Mar 04 2018
  *
- * This file is part of Fusion.
- * Copyright (c) 2018 Fusion
+ * This file is part of Corona.
+ * Copyright (c) 2018 Corona
  *
- * Fusion is free software: you can redistribute it and/or modify
+ * Corona is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * Fusion is distributed in the hope that it will be useful,
+ * Corona is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with Fusion.  If not, see <http://www.gnu.org/licenses/>.
+ * along with Corona.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 // copypasta from https://github.com/IdcNoob/Ensage/blob/master/CreepsBlocker/ and https://github.com/IdcNoob/Ensage/blob/master/BodyBlocker/
@@ -94,37 +94,37 @@ module = {
 	name: "Body Blocker",
 	isVisible: false,
 	onPreload: (): void => {
-		if(!Fusion.Commands.CreepBlock) {
-			Fusion.Commands.CreepBlock = true // flag. don't touch.
-			Game.AddCommand("+__CreepBlock", () => Fusion.OnTick.push(CreepBlockF), "", 0)
-			Game.AddCommand("-__CreepBlock", () => Fusion.OnTick.remove(CreepBlockF), "", 0)
+		if(!Corona.Commands.CreepBlock) {
+			Corona.Commands.CreepBlock = true // flag. don't touch.
+			Game.AddCommand("+__CreepBlock", () => Corona.OnTick.push(CreepBlockF), "", 0)
+			Game.AddCommand("-__CreepBlock", () => Corona.OnTick.remove(CreepBlockF), "", 0)
 	
 			Game.AddCommand("__CreepBlock", () => {
-				if(Fusion.OnTick.indexOf(CreepBlockF) === -1)
-					Fusion.OnTick.push(CreepBlockF)
+				if(Corona.OnTick.indexOf(CreepBlockF) === -1)
+					Corona.OnTick.push(CreepBlockF)
 				else
-					Fusion.OnTick.remove(CreepBlockF)
+					Corona.OnTick.remove(CreepBlockF)
 			}, "", 0)
 		}
-		if(!Fusion.Commands.HeroBlock) {
-			Fusion.Commands.HeroBlock = true // flag. don't touch.
+		if(!Corona.Commands.HeroBlock) {
+			Corona.Commands.HeroBlock = true // flag. don't touch.
 			Game.AddCommand("+__HeroBlock", (name, arg) => { // arg = 0 => block only enemies, and vice versa
 				HeroBlock_flag = parseInt(arg)
-				Fusion.OnTick.push(HeroBlockF)
+				Corona.OnTick.push(HeroBlockF)
 			}, "", 0)
-			Game.AddCommand("-__HeroBlock", () => Fusion.OnTick.remove(HeroBlockF), "", 0)
+			Game.AddCommand("-__HeroBlock", () => Corona.OnTick.remove(HeroBlockF), "", 0)
 	
 			Game.AddCommand("__HeroBlock", (name, arg) => {
 				HeroBlock_flag = parseInt(arg)
-				if(Fusion.OnTick.indexOf(HeroBlockF) === -1)
-					Fusion.OnTick.push(HeroBlockF)
+				if(Corona.OnTick.indexOf(HeroBlockF) === -1)
+					Corona.OnTick.push(HeroBlockF)
 				else
-					Fusion.OnTick.remove(HeroBlockF)
+					Corona.OnTick.remove(HeroBlockF)
 			}, "", 0)
 		}
 	},
 	onDestroy: () => {
-		Fusion.OnTick.remove(CreepBlockF)
-		Fusion.OnTick.remove(HeroBlockF)
+		Corona.OnTick.remove(CreepBlockF)
+		Corona.OnTick.remove(HeroBlockF)
 	}
 }

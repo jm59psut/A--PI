@@ -18,12 +18,12 @@ module = {
 name: "RetardedBristle",
 onToggle: checkbox => {
     if (checkbox.checked) {
-        Fusion.OnTick.push(WTFBristle)
+        Corona.OnTick.push(WTFBristle)
         Utils.ScriptLogMsg("Script enabled: RetardedBristle", "#00ff00")
     } else {
-        Fusion.OnTick.remove(WTFBristle)
+        Corona.OnTick.remove(WTFBristle)
         Utils.ScriptLogMsg("Script disabled: RetardedBristle", "#ff0000")
     }
 },
-onDestroy: () => Fusion.OnTick.remove(WTFBristle)
+onDestroy: () => Corona.OnTick.remove(WTFBristle)
 }

@@ -1,4 +1,4 @@
-Fusion.Particles.Snatcher = []
+Corona.Particles.Snatcher = []
 var TruePickupRadius = 150,
 	PickupRadius = 450,
 	RoshpitCenter = [-2388, 1761, 159],
@@ -11,9 +11,9 @@ function IsInRoshpit(vec) {
 }
 
 function DestroyParticles() {
-	Fusion.Particles.Snatcher.forEach(par => {
+	Corona.Particles.Snatcher.forEach(par => {
 		Particles.DestroyParticleEffect(par, true)
-		delete Fusion.Particles.Snatcher[par]
+		delete Corona.Particles.Snatcher[par]
 	})
 }
 
@@ -23,11 +23,11 @@ function CreateParticle() {
 	
 	par = Particles.CreateParticle("particles/ui_mouseactions/range_display.vpcf", ParticleAttachment_t.PATTACH_ABSORIGIN_FOLLOW, MyEnt)
 	Particles.SetParticleControl(par, 1, [PickupRadius, 0, 0])
-	Fusion.Particles.Snatcher.push(par)
+	Corona.Particles.Snatcher.push(par)
 
 	par = Particles.CreateParticle("particles/ui_mouseactions/range_display.vpcf", ParticleAttachment_t.PATTACH_ABSORIGIN_FOLLOW, MyEnt)
 	Particles.SetParticleControl(par, 1, [TruePickupRadius, 0, 0])
-	Fusion.Particles.Snatcher.push(par)
+	Corona.Particles.Snatcher.push(par)
 }
 function eq(ar1, ar2) {
 	return !ar1.some((el, id) => ar2[id] !== el)
@@ -59,12 +59,12 @@ function SnatcherF() {
 			&& IsInRoshpit(Entities.GetAbsOrigin(ent))
 		)
 	if(nearbyRunes.length === 0 && items.length === 0) {
-		Interval = Fusion.MyTick * 3
+		Interval = Corona.MyTick * 3
 		if(enabled)
 			$.Schedule(Interval, SnatcherF)
 		return
 	} else
-		Interval = Fusion.MyTick
+		Interval = Corona.MyTick
 	
 	nearbyRunes.every(Rune => {
 		Orders.PickupRune(MyEnt, Rune, false)
@@ -84,17 +84,17 @@ module = {
 	onToggle: checkbox => {
 		if (checkbox.checked) {
             CreateParticle()
-            Fusion.OnTick.push(SnatcherF)
+            Corona.OnTick.push(SnatcherF)
 			Utils.ScriptLogMsg("Script enabled: Snatcher", "#00ff00")
 		} else {
-            Fusion.OnTick.remove(CreateParticle)
-            Fusion.OnTick.remove(SnatcherF)
+            Corona.OnTick.remove(CreateParticle)
+            Corona.OnTick.remove(SnatcherF)
 			Utils.ScriptLogMsg("Script disabled: Snatcher", "#ff0000")
 		}
 	},
 	onDestroy: () => {
-        Fusion.OnTick.remove(SnatcherF)
-        Fusion.OnTick.remove(CreateParticle)
+        Corona.OnTick.remove(SnatcherF)
+        Corona.OnTick.remove(CreateParticle)
     
 	}
 }

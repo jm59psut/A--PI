@@ -1,21 +1,21 @@
 /*!
  * Created on Sun Mar 04 2018
  *
- * This file is part of Fusion.
- * Copyright (c) 2018 Fusion
+ * This file is part of Corona.
+ * Copyright (c) 2018 Corona
  *
- * Fusion is free software: you can redistribute it and/or modify
+ * Corona is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * Fusion is distributed in the hope that it will be useful,
+ * Corona is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with Fusion.  If not, see <http://www.gnu.org/licenses/>.
+ * along with Corona.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 var AbuseManaItems = [
@@ -30,10 +30,10 @@ module = {
 	name: "ManaAbuse",
 	isVisible: false,
 	onPreload: (): void => {
-		if(Fusion.Commands.ManaAbuseF)
+		if(Corona.Commands.ManaAbuseF)
 			return
 	
-		Fusion.Commands.ManaAbuseF = () => {
+		Corona.Commands.ManaAbuseF = () => {
 			var MyEnt = EntityManager.MyEnt,
 				dropVec = MyEnt.InFront(150),
 				Inv = MyEnt.Inventory
@@ -53,6 +53,6 @@ module = {
 				&& MyEnt.IsEntityInRange(ent, 150) // position calculations are latest, as it's most time-consuming
 			).forEach(ent => Orders.PickupItem(MyEnt, ent, false))
 		}
-		Game.AddCommand("__ManaAbuse", Fusion.Commands.ManaAbuseF, "", 0)
+		Game.AddCommand("__ManaAbuse", Corona.Commands.ManaAbuseF, "", 0)
 	}
 }

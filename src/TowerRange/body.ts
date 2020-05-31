@@ -1,4 +1,4 @@
-Fusion.Particles.TowerRange = [];
+Corona.Particles.TowerRange = [];
 var LastTowersLength = 0;
 var IsNowNightTime = false;
 function IsNight() {
@@ -14,21 +14,21 @@ var TowerLoad = function(){
 					Particles.SetParticleControl(CurrentTowerParticle, 1, [Entities.GetNightTimeVisionRange(e),0,0])
 				else
 					Particles.SetParticleControl(CurrentTowerParticle, 1, [Entities.GetAttackRange(e) + Entities.GetHullRadius(e) + 20,0,0])
-			Fusion.Particles.TowerRange.push(CurrentTowerParticle);
+			Corona.Particles.TowerRange.push(CurrentTowerParticle);
 			
 				var CurrentTowerParticle = ParticleManager.CreateParticle("particles/ui_mouseactions/range_display_b.vpcf", ParticleAttachment_t.PATTACH_ABSORIGIN_FOLLOW , e);
 				if(IsNowNightTime)
 					Particles.SetParticleControl(CurrentTowerParticle, 1, [Entities.GetNightTimeVisionRange(e),0,0])
 				else
 					Particles.SetParticleControl(CurrentTowerParticle, 1, [Entities.GetAttackRange(e) + Entities.GetHullRadius(e) + 20,0,0])
-				Fusion.Particles.TowerRange.push(CurrentTowerParticle);
+				Corona.Particles.TowerRange.push(CurrentTowerParticle);
 		
 		}
 	}
 function TowerRangeCleanUp() {
-	for(var temp in Fusion.Particles.TowerRange) {
-		if(typeof Fusion.Particles.TowerRange[temp] == 'number') {
-			Particles.DestroyParticleEffect(Fusion.Particles.TowerRange[temp], true);
+	for(var temp in Corona.Particles.TowerRange) {
+		if(typeof Corona.Particles.TowerRange[temp] == 'number') {
+			Particles.DestroyParticleEffect(Corona.Particles.TowerRange[temp], true);
 		}
 	}
 }
@@ -45,5 +45,5 @@ module = {
 			Utils.ScriptLogMsg("Script disabled: Tower Range", "#ff0000")
 		}
 	},
-	onDestroy: () => Fusion.OnTick.remove(TowerRangeCleanUp)
+	onDestroy: () => Corona.OnTick.remove(TowerRangeCleanUp)
 }

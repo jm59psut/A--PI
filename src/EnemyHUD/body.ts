@@ -1,25 +1,25 @@
 /*!
  * Created on Sun Mar 04 2018
  *
- * This file is part of Fusion.
- * Copyright (c) 2018 Fusion
+ * This file is part of Corona.
+ * Copyright (c) 2018 Corona
  *
- * Fusion is free software: you can redistribute it and/or modify
+ * Corona is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * Fusion is distributed in the hope that it will be useful,
+ * Corona is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with Fusion.  If not, see <http://www.gnu.org/licenses/>.
+ * along with Corona.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 //idea and base (c) I_GRIN_I 2017
-var MainHud: Panel = Fusion.Panels.Main.HUDElements,
+var MainHud: Panel = Corona.Panels.Main.HUDElements,
 	unlearnedWashColor = "#666666",
 	hookPanels: Panel[] = [],
 	latestEnemy: boolean, abpanel_layout: string, lvlpanel_layout: string, itm_layout: string, stash_layout: string
@@ -53,9 +53,9 @@ function DeleteAll_EnemyHUD() {
 	})
 	hookPanels = []
 
-	if (!Fusion.Panels.EnemyHUD)
-		Fusion.Panels.EnemyHUD = []
-	Fusion.Panels.EnemyHUD.forEach(([abilPanel, lvlPanels]) => {
+	if (!Corona.Panels.EnemyHUD)
+		Corona.Panels.EnemyHUD = []
+	Corona.Panels.EnemyHUD.forEach(([abilPanel, lvlPanels]) => {
 		try {
 			abilPanel.DeleteAsync(0)
 		} catch(e) {}
@@ -65,16 +65,16 @@ function DeleteAll_EnemyHUD() {
 			} catch(e) {}
 		})
 	})
-	Fusion.Panels.EnemyHUD = []
+	Corona.Panels.EnemyHUD = []
 
-	if (!Fusion.Panels.EnemyItems)
-		Fusion.Panels.EnemyItems = {}
-	Object.keys(Fusion.Panels.EnemyItems).forEach((str: string) => { // Object.values aren't supported in panorama
+	if (!Corona.Panels.EnemyItems)
+		Corona.Panels.EnemyItems = {}
+	Object.keys(Corona.Panels.EnemyItems).forEach((str: string) => { // Object.values aren't supported in panorama
 		try {
-			Fusion.Panels.EnemyItems[str].DeleteAsync(0)
+			Corona.Panels.EnemyItems[str].DeleteAsync(0)
 		} catch(e) {}
 	})
-	Fusion.Panels.EnemyItems = {}
+	Corona.Panels.EnemyItems = {}
 }
 
 function FixColors() {
@@ -101,9 +101,9 @@ function FixColors() {
 }
 
 function UnsubscribeAll() {
-	if(Fusion.Subscribes.EnemyHUD)
-		Fusion.Subscribes.EnemyHUD.forEach(sub => GameEvents.Unsubscribe(sub)) // Optimize this line by native
-	Fusion.Subscribes.EnemyHUD = []
+	if(Corona.Subscribes.EnemyHUD)
+		Corona.Subscribes.EnemyHUD.forEach(sub => GameEvents.Unsubscribe(sub)) // Optimize this line by native
+	Corona.Subscribes.EnemyHUD = []
 }
 
 function SetPanelEvent(abPanel, ability) {
@@ -155,16 +155,16 @@ function EnemyHUD() {
 		if(!abilLayout)
 			continue
 		var lvlPanelContainer = abilLayout.FindChildTraverse("AbilityLevelContainer")
-		if(Fusion.Panels.EnemyHUD[abilNum - generic] === undefined) {
+		if(Corona.Panels.EnemyHUD[abilNum - generic] === undefined) {
 			let abilButton = abilLayout.FindChildTraverse("AbilityButton"),
 				abPanel = $.CreatePanel("Panel", abilButton, "abpanel")
 			abPanel.BLoadLayoutFromString(abpanel_layout, false, false)
 			abilButton.MoveChildBefore(abPanel, abilButton.FindChild("AbilityBevel")) // quickhack to move our abpanel before AbilityBevel
 			SetPanelEvent(abPanel, ability)
-			Fusion.Panels.EnemyHUD[abilNum - generic] = [abPanel, lvlPanelContainer.Children()]
+			Corona.Panels.EnemyHUD[abilNum - generic] = [abPanel, lvlPanelContainer.Children()]
 		}
 
-		var [abPanel, lvlPanels] = Fusion.Panels.EnemyHUD[abilNum - generic]
+		var [abPanel, lvlPanels] = Corona.Panels.EnemyHUD[abilNum - generic]
 		if(abilCD > 0) {
 			abPanel.FindChild("cooldown").text = Math.ceil(abilCD)
 			abPanel.FindChild("cooldownoverlay").visible = true
@@ -181,40 +181,40 @@ function EnemyHUD() {
 				lvlPanel.BLoadLayoutFromString(lvlpanel_layout, false, false)
 				lvlPanels.push(lvlPanel)
 			}
-			Fusion.Panels.EnemyHUD[abilNum-generic] = [abPanel, lvlPanels]
+			Corona.Panels.EnemyHUD[abilNum-generic] = [abPanel, lvlPanels]
 		}
 		lvlPanels.forEach((lvlPanel, i) => {
 			lvlPanel.visible = abilMaxLevel - i - 1 > -1
 			lvlPanel.SetHasClass("active_level", abilLevel - i - 1 > -1)
 		})
 	}
-	if(Fusion.Panels.EnemyItems["StashPanel"] === undefined) {
-		var stash = $.CreatePanel("Panel", MainHud, "FusionStash")
+	if(Corona.Panels.EnemyItems["StashPanel"] === undefined) {
+		var stash = $.CreatePanel("Panel", MainHud, "CoronaStash")
 		stash.BLoadLayoutFromString(stash_layout, false, false)
 		stash.FindChildTraverse("itemrow").Children().forEach(child => Utils.InstallStyle(child, "margin-left: 1.5%; height: 70%; width: 15%"))
-		Fusion.Panels.EnemyItems["StashPanel"] = stash
+		Corona.Panels.EnemyItems["StashPanel"] = stash
 	}
 	var stashItems = selectedEnt.StashItems
-	Fusion.Panels.EnemyItems["StashPanel"].visible = stashItems.filter(item => item !== undefined).length !== 0
-	if(Fusion.Panels.EnemyItems["StashPanel"].visible) {
-		const stash = Fusion.Panels.EnemyItems["StashPanel"]
+	Corona.Panels.EnemyItems["StashPanel"].visible = stashItems.filter(item => item !== undefined).length !== 0
+	if(Corona.Panels.EnemyItems["StashPanel"].visible) {
+		const stash = Corona.Panels.EnemyItems["StashPanel"]
 		stashItems.forEach((item, i) => {
 			const parent = stash.FindChildTraverse(`item${i}`)
 			i += 9 // stash items' IDs are starting from 9
 			if(!item) {
-				if (Fusion.Panels.EnemyItems[`itemPanel${i}`] !== undefined) {
-					Fusion.Panels.EnemyItems[`itemPanel${i}`].DeleteAsync(0)
-					delete Fusion.Panels.EnemyItems[`itemPanel${i}`]
+				if (Corona.Panels.EnemyItems[`itemPanel${i}`] !== undefined) {
+					Corona.Panels.EnemyItems[`itemPanel${i}`].DeleteAsync(0)
+					delete Corona.Panels.EnemyItems[`itemPanel${i}`]
 				}
 				parent.itemname = ""
 				return
 			} else
 				parent.itemname = item.AbilityName
-			if(Fusion.Panels.EnemyItems[`itemPanel${i}`] === undefined) {
+			if(Corona.Panels.EnemyItems[`itemPanel${i}`] === undefined) {
 				const itemPanel = $.CreatePanel("Panel", parent, `itemPanel${i}`)
 				itemPanel.BLoadLayoutFromString(itm_layout, false, false)
 
-				Fusion.Panels.EnemyItems[`itemPanel${i}`] = itemPanel
+				Corona.Panels.EnemyItems[`itemPanel${i}`] = itemPanel
 			}
 
 			InitStyles(selectedEnt, item, i)
@@ -222,24 +222,24 @@ function EnemyHUD() {
 	}
 	selectedEnt.Inventory.forEach((item, i) => {
 		if(!item) {
-			if(Fusion.Panels.EnemyItems[`itemPanel${i}`] !== undefined) {
-				Fusion.Panels.EnemyItems[`itemPanel${i}`].DeleteAsync(0)
-				delete Fusion.Panels.EnemyItems[`itemPanel${i}`]
+			if(Corona.Panels.EnemyItems[`itemPanel${i}`] !== undefined) {
+				Corona.Panels.EnemyItems[`itemPanel${i}`].DeleteAsync(0)
+				delete Corona.Panels.EnemyItems[`itemPanel${i}`]
 			}
 			return
 		}
-		if(Fusion.Panels.EnemyItems[`itemPanel${i}`] === undefined) {
+		if(Corona.Panels.EnemyItems[`itemPanel${i}`] === undefined) {
 			var slot = MainHud.FindChildTraverse(`inventory_slot_${i}`).FindChildTraverse("AbilityButton"),
 				itemPanel = $.CreatePanel("Panel", slot, `itemPanel${i}`)
 			itemPanel.BLoadLayoutFromString(itm_layout, false, false)
-			Fusion.Panels.EnemyItems[`itemPanel${i}`] = itemPanel
+			Corona.Panels.EnemyItems[`itemPanel${i}`] = itemPanel
 		}
 		InitStyles(selectedEnt, item, i)
 	})
 }
 
 function InitStyles(selectedEnt: Entity, item: Item, i: number) { // used for items ONLY
-	var itemPanel: Panel = Fusion.Panels.EnemyItems[`itemPanel${i}`],
+	var itemPanel: Panel = Corona.Panels.EnemyItems[`itemPanel${i}`],
 		itemCD = item.CooldownTimeRemaining, // current cooldown
 		itemMaxCD = item.Cooldown || itemCD || 1 // max cooldown
 	if(itemPanel.FindChild("cooldownoverlay").visible = itemCD > 0) {
@@ -253,13 +253,13 @@ function EnemyHUDOnInterval() {
 	EnemyHUD()
 
 	if(!latestEnemy)
-		Fusion.OnTick.remove(EnemyHUDOnInterval)
+		Corona.OnTick.remove(EnemyHUDOnInterval)
 }
 
 function EventSubscribe() {
 	if(latestEnemy)
 		return
-	Fusion.OnTick.push(EnemyHUDOnInterval)
+	Corona.OnTick.push(EnemyHUDOnInterval)
 }
 
 module = {
@@ -268,21 +268,21 @@ module = {
 	onPreload: () => {
 		module.onDestroy()
 		// MakeTopBarGreatAgain() // doesn't work at dedicated servers, idk why, but GameUI.SelectUnit just doesn't work for FoW
-		Fusion.GetXML("EnemyHUD/abpanel").then(xml => abpanel_layout = xml)
-			.then(() => Fusion.GetXML("EnemyHUD/lvlpanel").then(xml => lvlpanel_layout = xml)
-				.then(() => Fusion.GetXML("EnemyHUD/itm").then(xml => itm_layout = xml)
-					.then(() => Fusion.GetXML("EnemyHUD/stash").then(xml => stash_layout = xml)
+		Corona.GetXML("EnemyHUD/abpanel").then(xml => abpanel_layout = xml)
+			.then(() => Corona.GetXML("EnemyHUD/lvlpanel").then(xml => lvlpanel_layout = xml)
+				.then(() => Corona.GetXML("EnemyHUD/itm").then(xml => itm_layout = xml)
+					.then(() => Corona.GetXML("EnemyHUD/stash").then(xml => stash_layout = xml)
 						.then(() => {
-							//Fusion.OnUpdate.push(FixColors)
-							Fusion.Subscribes.EnemyHUD.update_selected_unit = GameEvents.Subscribe("dota_player_update_selected_unit", EventSubscribe)
-							Fusion.Subscribes.EnemyHUD.update_query_unit = GameEvents.Subscribe("dota_player_update_query_unit", EventSubscribe)
+							//Corona.OnUpdate.push(FixColors)
+							Corona.Subscribes.EnemyHUD.update_selected_unit = GameEvents.Subscribe("dota_player_update_selected_unit", EventSubscribe)
+							Corona.Subscribes.EnemyHUD.update_query_unit = GameEvents.Subscribe("dota_player_update_query_unit", EventSubscribe)
 						})
 					)
 				)
 			)
 	},
 	onDestroy: () => {
-		//Fusion.OnUpdate.remove(FixColors)
+		//Corona.OnUpdate.remove(FixColors)
 		UnsubscribeAll()
 		DeleteAll_EnemyHUD()
 	}

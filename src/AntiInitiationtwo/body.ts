@@ -117,5 +117,5 @@ module = {
 			Utils.ScriptLogMsg("Script disabled: AntiInitiation 2.0", "#ff0000")
 		}
 	},
-	onDestroy: () => Fusion.OnTick.remove(AntiInitiationF2)
+	onDestroy: () => Corona.OnTick.remove(AntiInitiationF2)
 }

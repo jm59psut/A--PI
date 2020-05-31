@@ -22,9 +22,9 @@ module = {
 		combo.addAbility("item_satanic", EComboAction.CURSOR_ENEMY)
 
 		
-		if(!Fusion.Commands.AXECombo) {
-			Fusion.Commands.AXECombo = () => combo.execute(EntityManager.MyEnt)
-			Game.AddCommand("__AXECombo", Fusion.Commands.AXECombo, "", 0)
+		if(!Corona.Commands.AXECombo) {
+			Corona.Commands.AXECombo = () => combo.execute(EntityManager.MyEnt)
+			Game.AddCommand("__AXECombo", Corona.Commands.AXECombo, "", 0)
 		}
 	},
 	isVisible:false

@@ -37,7 +37,7 @@
         return [zxc[0]+forward[0]*movespeed*time,zxc[1]+forward[1]*movespeed*time,zxc[2]+forward[2]*movespeed*time]
     }
     
-    Game.AddCommand("__Autohook", Fusion.Commands.AutoHookFunction, "", 0);
+    Game.AddCommand("__Autohook", Corona.Commands.AutoHookFunction, "", 0);
 
     module = {
         name: "Auto Hook",

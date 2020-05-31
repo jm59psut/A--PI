@@ -7,8 +7,8 @@ module = {
 	onToggle: checkbox => {
 		if (checkbox.checked) {
 			var MyEnt = EntityManager.MyEnt
-			Fusion.Particles.ExpRange = Utils.CreateCustomRange(MyEnt, ExpRange)
-			Fusion.Particles.DaggerRange = Utils.CreateCustomRange(MyEnt, DaggerRange)
+			Corona.Particles.ExpRange = Utils.CreateCustomRange(MyEnt, ExpRange)
+			Corona.Particles.DaggerRange = Utils.CreateCustomRange(MyEnt, DaggerRange)
 
 			Utils.ScriptLogMsg("Script enabled: ExpRange", "#00ff00")
 		} else {
@@ -17,14 +17,14 @@ module = {
 		}
 	},
 	onDestroy: (): void => {
-		if(Fusion.Particles.ExpRange) {
-			ParticleManager.DestroyParticleEffect(Fusion.Particles.ExpRange, true)
-			delete Fusion.Particles.ExpRange
+		if(Corona.Particles.ExpRange) {
+			ParticleManager.DestroyParticleEffect(Corona.Particles.ExpRange, true)
+			delete Corona.Particles.ExpRange
 		}
 	
-		if(Fusion.Particles.DaggerRange) {
-			ParticleManager.DestroyParticleEffect(Fusion.Particles.DaggerRange, true)
-			delete Fusion.Particles.DaggerRange
+		if(Corona.Particles.DaggerRange) {
+			ParticleManager.DestroyParticleEffect(Corona.Particles.DaggerRange, true)
+			delete Corona.Particles.DaggerRange
 		}
 	}
 }

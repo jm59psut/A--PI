@@ -1,20 +1,20 @@
-declare var Fusion: Fusion;
-declare var module: FusionModule;
+declare var Corona: Corona;
+declare var module: CoronaModule;
 declare var ComboOptions: ComboOptions;
 declare var _this: any;
 
-interface Fusion {
+interface Corona {
 	Configs: any
 	Commands: any
 	Panels: any
 	Particles: any
 	Subscribes: any
-	Scripts: Map<String, FusionModule>
+	Scripts: Map<String, CoronaModule>
 	MyTick: number
 	debug: boolean
 	debugLoad: boolean
 	debugAnimations: boolean
-	FusionServer: string
+	CoronaServer: string
 	SteamID: string
 	OnTick: ((/*self: */Function) => void)[]
 	OnUpdate: ((/*self: */Function) => void)[]
@@ -29,9 +29,9 @@ interface Fusion {
 	SaveConfig(scriptName: string, config: any): Promise<string>
 	GetConfig(scriptName: string): Promise<string | Array<any> | any>
 
-	ReloadFusion(): void
-	LoadFusion(): Promise<void>
-	AddScriptToList(script: FusionModule): void
+	ReloadCorona(): void
+	LoadCorona(): Promise<void>
+	AddScriptToList(script: CoronaModule): void
 	LoadScriptFromString(scriptCode: string): any
 }
 
@@ -58,7 +58,7 @@ interface CScriptBindingPR_Game {
 	allCreeps: Entity[]
 }
 
-interface FusionModule {
+interface CoronaModule {
 	name?: string
 	isVisible?: boolean
 

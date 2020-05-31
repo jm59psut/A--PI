@@ -1,21 +1,21 @@
 /*!
  * Created on Sun Mar 04 2018
  *
- * This file is part of Fusion.
- * Copyright (c) 2018 Fusion
+ * This file is part of Corona.
+ * Copyright (c) 2018 Corona
  *
- * Fusion is free software: you can redistribute it and/or modify
+ * Corona is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * Fusion is distributed in the hope that it will be useful,
+ * Corona is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with Fusion.  If not, see <http://www.gnu.org/licenses/>.
+ * along with Corona.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 var name_cache = []
@@ -282,8 +282,8 @@ var Utils = {
 				return
 			var color = a.style.backgroundColor
 			a.style.backgroundColor = "#FFFF00FF"
-			var uiw = Fusion.Panels.Main.actuallayoutwidth,
-				uih = Fusion.Panels.Main.actuallayoutheight
+			var uiw = Corona.Panels.Main.actuallayoutwidth,
+				uih = Corona.Panels.Main.actuallayoutheight
 			var linkpanel = () => {
 				a.style.position = `${(GameUI.GetCursorPosition()[0] / uiw * 100)}% ${(GameUI.GetCursorPosition()[1] / uih * 100)}% 0`
 				if (GameUI.IsMouseDown(0)) {
@@ -367,7 +367,7 @@ var Utils = {
 	 * @param {string} color color that will apply to message
 	 */
 	ScriptLogMsg(msg: string, color?: string): void {
-		var ScriptLog = Fusion.Panels.MainPanel.ScriptLog || (Fusion.Panels.MainPanel.ScriptLog = Fusion.Panels.MainPanel.FindChildTraverse("ScriptLog")),
+		var ScriptLog = Corona.Panels.MainPanel.ScriptLog || (Corona.Panels.MainPanel.ScriptLog = Corona.Panels.MainPanel.FindChildTraverse("ScriptLog")),
 			ScriptLogMessage = $.CreatePanel("Label", ScriptLog, "ScriptLogMessage")
 		ScriptLogMessage.BLoadLayoutFromString("\
 	<root>\
@@ -384,9 +384,9 @@ var Utils = {
 		ScriptLogMessage.DeleteAsync(7)
 	},
 	GetCFG(script){
-		for(var i in Fusion)
-			if(Fusion[i].script_name == script) {
-				Config = JSON.parse(Fusion[i].script_config)
+		for(var i in Corona)
+			if(Corona[i].script_name == script) {
+				Config = JSON.parse(Corona[i].script_config)
 				return(Config)
 			}
 	},

@@ -47,13 +47,13 @@ module = {
 	name: "Auto Armlet",
 	onToggle: checkbox => {
 		if (checkbox.checked) {
-            Fusion.OnTick.push(PlayerAutoArmlet)
-			Fusion.OnTick.push(AutoArmletTick)
+            Corona.OnTick.push(PlayerAutoArmlet)
+			Corona.OnTick.push(AutoArmletTick)
 			Utils.ScriptLogMsg("AutoArmlet", "#00ff00")
 		} else {
 			module.onDestroy()
 			Utils.ScriptLogMsg("AutoArmlet", "#ff0000")
 		}
 	},
-	onDestroy: () => Fusion.OnTick.remove(AutoArmletTick)
+	onDestroy: () => Corona.OnTick.remove(AutoArmletTick)
 }

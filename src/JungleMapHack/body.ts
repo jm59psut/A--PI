@@ -1,26 +1,26 @@
 /*!
  * Created on Sun Mar 04 2018
  *
- * This file is part of Fusion.
- * Copyright (c) 2018 Fusion
+ * This file is part of Corona.
+ * Copyright (c) 2018 Corona
  *
- * Fusion is free software: you can redistribute it and/or modify
+ * Corona is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * Fusion is distributed in the hope that it will be useful,
+ * Corona is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with Fusion.  If not, see <http://www.gnu.org/licenses/>.
+ * along with Corona.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-var MainHud:      Panel  = Fusion.Panels.Main,
-	uiw:          number = Fusion.Panels.Main.actuallayoutwidth,
-	uih:          number = Fusion.Panels.Main.actuallayoutheight,
+var MainHud:      Panel  = Corona.Panels.Main,
+	uiw:          number = Corona.Panels.Main.actuallayoutwidth,
+	uih:          number = Corona.Panels.Main.actuallayoutheight,
 	panel_layout: string
 
 var JungleCreeps = {
@@ -43,10 +43,10 @@ function JungleMapHack_OnTick() {
 		|| ent.TeamNumber !== DOTATeam_t.DOTA_TEAM_NEUTRALS
 	).forEach(ent => Game.allCreeps.remove(ent))
 	var invisCreeps = JungleCreeps.NotSpawnedCreeps
-	Fusion.Panels.JungleMapHack.forEach((panel: Panel, creep_id: number) => {
+	Corona.Panels.JungleMapHack.forEach((panel: Panel, creep_id: number) => {
 		if(invisCreeps.indexOf(EntityManager.EntityByID(creep_id)) === -1) {
 			panel.DeleteAsync(0)
-			delete Fusion.Panels.JungleMapHack[creep_id]
+			delete Corona.Panels.JungleMapHack[creep_id]
 		}
 	})
 }
@@ -61,21 +61,21 @@ function JungleMapHack_OnUpdate() {
 			panel: Panel
 		
 		if (uix === -1 || uiy === -1) {
-			if((panel = Fusion.Panels.JungleMapHack[creep.id])) {
+			if((panel = Corona.Panels.JungleMapHack[creep.id])) {
 				panel.DeleteAsync(0)
-				delete Fusion.Panels.JungleMapHack[creep.id]
+				delete Corona.Panels.JungleMapHack[creep.id]
 			}
 			return
 		}
-		if(Fusion.Panels.JungleMapHack[creep.id] === undefined) {
+		if(Corona.Panels.JungleMapHack[creep.id] === undefined) {
 			panel = $.CreatePanel("Panel", MainHud, "JungleMapHack")
 			panel.BLoadLayoutFromString(panel_layout, false, false)
 			panel.Children()[0].text = Utils.Localize(creep.UnitName)
 
-			Fusion.Panels.JungleMapHack[creep.id] = panel
+			Corona.Panels.JungleMapHack[creep.id] = panel
 		}
 		if(panel === undefined)
-			panel = Fusion.Panels.JungleMapHack[creep.id]
+			panel = Corona.Panels.JungleMapHack[creep.id]
 		panel.style.position = `${uixp}% ${uiyp}% 0`
 	})
 }
@@ -83,14 +83,14 @@ function JungleMapHack_OnUpdate() {
 module = {
 	name: "Jungle Map Hack",
 	onPreload: () => {
-		Fusion.Panels.JungleMapHack = []
-		Fusion.GetXML("JungleMapHack/panel").then(xml => panel_layout = xml)
+		Corona.Panels.JungleMapHack = []
+		Corona.GetXML("JungleMapHack/panel").then(xml => panel_layout = xml)
 	},
 	onToggle: checkbox => {
 		if (checkbox.checked) {
 			Utils.UnrestrictedCmd("cl_fullupdate")
-			Fusion.OnTick.push(JungleMapHack_OnTick)
-			Fusion.OnUpdate.push(JungleMapHack_OnUpdate)
+			Corona.OnTick.push(JungleMapHack_OnTick)
+			Corona.OnUpdate.push(JungleMapHack_OnUpdate)
 			Utils.ScriptLogMsg("Script enabled: JungleMapHack", "#00ff00")
 			Utils.ScriptLogMsg("WARNING: game will freeze for a few seconds", "#00ff00")
 		} else {
@@ -99,11 +99,11 @@ module = {
 		}
 	},
 	onDestroy: (): void => {
-		Fusion.OnTick.remove(JungleMapHack_OnTick)
-		Fusion.OnUpdate.remove(JungleMapHack_OnUpdate)
-		if(Fusion.Panels.JungleMapHack !== undefined) {
-			Fusion.Panels.JungleMapHack.forEach(panel => panel.DeleteAsync(0))
-			Fusion.Panels.JungleMapHack = []
+		Corona.OnTick.remove(JungleMapHack_OnTick)
+		Corona.OnUpdate.remove(JungleMapHack_OnUpdate)
+		if(Corona.Panels.JungleMapHack !== undefined) {
+			Corona.Panels.JungleMapHack.forEach(panel => panel.DeleteAsync(0))
+			Corona.Panels.JungleMapHack = []
 		}
 	}
 }

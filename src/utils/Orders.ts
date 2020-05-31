@@ -1,21 +1,21 @@
 /*!
  * Created on Sun Mar 04 2018
  *
- * This file is part of Fusion.
- * Copyright (c) 2018 Fusion
+ * This file is part of Corona.
+ * Copyright (c) 2018 Corona
  *
- * Fusion is free software: you can redistribute it and/or modify
+ * Corona is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * Fusion is distributed in the hope that it will be useful,
+ * Corona is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with Fusion.  If not, see <http://www.gnu.org/licenses/>.
+ * along with Corona.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 var Orders = {
@@ -32,7 +32,7 @@ var Orders = {
 			Position: vec.Common,
 			Queue: queue,
 			OrderIssuer: orderIssuer,
-			ShowEffects: Fusion.debugAnimations
+			ShowEffects: Corona.debugAnimations
 		})
 	},
 
@@ -49,7 +49,7 @@ var Orders = {
 			Position: vec.Common,
 			Queue: queue,
 			OrderIssuer: orderIssuer,
-			ShowEffects: Fusion.debugAnimations
+			ShowEffects: Corona.debugAnimations
 		})
 	},
 
@@ -66,7 +66,7 @@ var Orders = {
 			Position: vec.Common,
 			Queue: queue,
 			OrderIssuer: orderIssuer,
-			ShowEffects: Fusion.debugAnimations
+			ShowEffects: Corona.debugAnimations
 		})
 		Orders.EntStop(ent, queue, orderIssuer)
 	},
@@ -84,7 +84,7 @@ var Orders = {
 			TargetIndex: target instanceof Entity ? target.id  : target,
 			Queue: queue,
 			OrderIssuer: orderIssuer,
-			ShowEffects: Fusion.debugAnimations
+			ShowEffects: Corona.debugAnimations
 		})
 	},
 
@@ -101,7 +101,7 @@ var Orders = {
 			Position: vec.Common,
 			Queue: queue,
 			OrderIssuer: orderIssuer,
-			ShowEffects: Fusion.debugAnimations
+			ShowEffects: Corona.debugAnimations
 		})
 	},
 
@@ -118,7 +118,7 @@ var Orders = {
 			TargetIndex: target instanceof Entity ? target.id  : target,
 			Queue: queue,
 			OrderIssuer: orderIssuer,
-			ShowEffects: Fusion.debugAnimations
+			ShowEffects: Corona.debugAnimations
 		})
 	},
 
@@ -133,7 +133,7 @@ var Orders = {
 			UnitIndex: ent instanceof Entity ? ent.id  : ent,
 			Queue: queue,
 			OrderIssuer: orderIssuer,
-			ShowEffects: Fusion.debugAnimations
+			ShowEffects: Corona.debugAnimations
 		})
 	},
 
@@ -150,7 +150,7 @@ var Orders = {
 			TargetIndex: target instanceof Entity ? target.id  : target,
 			Queue: queue,
 			OrderIssuer: orderIssuer,
-			ShowEffects: Fusion.debugAnimations
+			ShowEffects: Corona.debugAnimations
 		})
 	},
 
@@ -167,7 +167,7 @@ var Orders = {
 			TargetIndex: target instanceof Entity ? target.id  : target,
 			Queue: queue,
 			OrderIssuer: orderIssuer,
-			ShowEffects: Fusion.debugAnimations
+			ShowEffects: Corona.debugAnimations
 		})
 	},
 
@@ -188,7 +188,7 @@ var Orders = {
 			AbilityIndex: abil instanceof Entity ? abil.id  : abil,
 			Queue: queue,
 			OrderIssuer: orderIssuer,
-			ShowEffects: Fusion.debugAnimations
+			ShowEffects: Corona.debugAnimations
 		})
 
 		Utils.SelectGroup(prev, true)
@@ -211,7 +211,7 @@ var Orders = {
 			AbilityIndex: abil instanceof Entity ? abil.id  : abil,
 			Queue: queue,
 			OrderIssuer: orderIssuer,
-			ShowEffects: Fusion.debugAnimations
+			ShowEffects: Corona.debugAnimations
 		})
 		
 		Utils.SelectGroup(prev, true)
@@ -231,7 +231,7 @@ var Orders = {
 			AbilityIndex: abil instanceof Entity ? abil.id  : abil,
 			Queue: queue,
 			OrderIssuer: orderIssuer,
-			ShowEffects: Fusion.debugAnimations
+			ShowEffects: Corona.debugAnimations
 		})
 	},
 	CastPosition2(ent, abil, xyz, queue){
@@ -264,7 +264,7 @@ var Orders = {
 			AbilityIndex: abil instanceof Entity ? abil.id : abil,
 			Queue: queue,
 			OrderIssuer: orderIssuer,
-			ShowEffects: Fusion.debugAnimations
+			ShowEffects: Corona.debugAnimations
 		})
 	},
 
@@ -283,7 +283,7 @@ var Orders = {
 			AbilityIndex: abil instanceof Entity ? abil.id  : abil,
 			Queue: queue,
 			OrderIssuer: orderIssuer,
-			ShowEffects: Fusion.debugAnimations
+			ShowEffects: Corona.debugAnimations
 		})
 		
 		Utils.SelectGroup(prev, true)
@@ -301,7 +301,7 @@ var Orders = {
 			AbilityIndex: item.id ? item.id  : item,
 			TargetIndex: slot_id,
 			Queue: queue,
-			ShowEffects: Fusion.debugAnimations
+			ShowEffects: Corona.debugAnimations
 		})
 	},
 
@@ -318,7 +318,7 @@ var Orders = {
 			Position: vec.Common,
 			AbilityIndex: target instanceof Entity ? target.id  : target,
 			Queue: queue,
-			ShowEffects: Fusion.debugAnimations
+			ShowEffects: Corona.debugAnimations
 		})
 	},
 
@@ -333,7 +333,7 @@ var Orders = {
 			UnitIndex: ent instanceof Entity ? ent.id  : ent,
 			TargetIndex: target instanceof Entity ? target.id  : target,
 			Queue: queue,
-			ShowEffects: Fusion.debugAnimations
+			ShowEffects: Corona.debugAnimations
 		})
 	},
 
@@ -347,7 +347,7 @@ var Orders = {
 			UnitIndex: ent instanceof Entity ? ent.id  : ent,
 			AbilityIndex: itemid,
 			Queue: false,
-			ShowEffects: Fusion.debugAnimations
+			ShowEffects: Corona.debugAnimations
 		})
 	},
 	Behaviors(DABor){

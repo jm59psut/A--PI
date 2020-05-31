@@ -39,15 +39,15 @@ module = {
 	name: "Dazzle Auto Grave",
 	onToggle: checkbox => {
 		if (checkbox.checked) {
-			Fusion.OnTick.push(DazzleWTFGraveOnInterval)
+			Corona.OnTick.push(DazzleWTFGraveOnInterval)
 			Utils.ScriptLogMsg("Dazzle Auto Grave", "#00ff00")
 		} else {
-			Fusion.OnTick.remove(DazzleWTFGraveOnInterval)
+			Corona.OnTick.remove(DazzleWTFGraveOnInterval)
 			Utils.ScriptLogMsg("Dazzle Auto Grave", "#ff0000")
 		}
 	},
 	onDestroy: () => {
 		abils.forEach(abilData => delete abilData.abil)
-		Fusion.OnTick.remove(DazzleWTFGraveOnInterval)
+		Corona.OnTick.remove(DazzleWTFGraveOnInterval)
 	}
 }

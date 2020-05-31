@@ -24,9 +24,9 @@ module = {
 		Utils.ScriptLogMsg("Black Hole Script IN ACTION")
 
 
-		if(!Fusion.Commands.EngimaCombo) {
-			Fusion.Commands.EngimaCombo = () => combo.execute(EntityManager.MyEnt)
-			Game.AddCommand("__ComboEnigma", Fusion.Commands.EngimaCombo, "", 0)
+		if(!Corona.Commands.EngimaCombo) {
+			Corona.Commands.EngimaCombo = () => combo.execute(EntityManager.MyEnt)
+			Game.AddCommand("__ComboEnigma", Corona.Commands.EngimaCombo, "", 0)
 		}
 	},
 	isVisible: false

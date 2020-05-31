@@ -1,5 +1,5 @@
 try{
-	Fusion.Panels.RubickAutoSteal.DeleteAsync(0)
+	Corona.Panels.RubickAutoSteal.DeleteAsync(0)
 }catch(e){}
 
 var interval = 0.1
@@ -12,7 +12,7 @@ var Config = []
 function RubickAutoStealF(){
 	if(flag)
 		return
-	var AbPanel = Fusion.Panels.RubickAutoSteal.Children()
+	var AbPanel = Corona.Panels.RubickAutoSteal.Children()
 	var z = []
 	for(var i in AbPanel)
 		if(AbPanel[i].style.opacity==1 || AbPanel[i].style.opacity==null)
@@ -65,12 +65,12 @@ function RubickAutoStealF(){
 	}
 }
 function RubickAutoStealCreatePanel(){
-	Fusion.Panels.RubickAutoSteal = $.CreatePanel( 'Panel', Utils.GetMainHUD(), 'RubickAutoStealAbilities' )
-	Fusion.Panels.RubickAutoSteal.BLoadLayoutFromString( '<root><Panel style="border: 1px solid #000;background-color:#000000EE;flow-children:down-wrap;max-width:200px;border-radius:10px;padding:5px 3px;" onactivate="Add()"></Panel></root>', false, false )
-	Utils.MovePanel(Fusion.Panels.RubickAutoSteal,function(p){
+	Corona.Panels.RubickAutoSteal = $.CreatePanel( 'Panel', Utils.GetMainHUD(), 'RubickAutoStealAbilities' )
+	Corona.Panels.RubickAutoSteal.BLoadLayoutFromString( '<root><Panel style="border: 1px solid #000;background-color:#000000EE;flow-children:down-wrap;max-width:200px;border-radius:10px;padding:5px 3px;" onactivate="Add()"></Panel></root>', false, false )
+	Utils.MovePanel(Corona.Panels.RubickAutoSteal,function(p){
 		var position = p.style.position.split(' ')
-		Fusion.Panels.MainPanel.x = position[0]
-		Fusion.Panels.MainPanel.y = position[1]
+		Corona.Panels.MainPanel.x = position[0]
+		Corona.Panels.MainPanel.y = position[1]
 	})
 	var HEnts = EntityManager.PlayersHeroEnts3()
 	for (var i in HEnts) {
@@ -83,7 +83,7 @@ function RubickAutoStealCreatePanel(){
 			if(!Abilities.IsDisplayedAbility(ab) || Abilities.IsPassive(ab) || Abilities.GetCooldown(ab)==0 )
 				continue
 			var name = Abilities.GetAbilityName( ab )
-			var Item = $.CreatePanel( 'Panel', Fusion.Panels.RubickAutoSteal, 'RubickAutoStealAbilities' )
+			var Item = $.CreatePanel( 'Panel', Corona.Panels.RubickAutoSteal, 'RubickAutoStealAbilities' )
 			//Item.BLoadLayoutFromString( '<root><Panel><DOTAAbilityImage style="width:35px;"/></Panel></root>', false, false )
 			Item.BLoadLayoutFromString( '<root><script>function Add(){$.GetContextPanel().style.opacity="0.1";$.GetContextPanel().SetPanelEvent("onactivate", Rem)}function Rem(){$.GetContextPanel().style.opacity="1.0";$.GetContextPanel().SetPanelEvent("onactivate", Add)}</script><Panel style="border: 1px solid #000; border-radius: 10px;" onactivate="Rem()"><DOTAAbilityImage style="width:35px;"/></Panel></root>', false, false )
 			Item.style.opacity = 0.1
@@ -106,7 +106,7 @@ module = {
 	RubickAutoStealCreatePanel()
 }
 if (!checkbox.checked) {
-	Fusion.Panels.RubickAutoSteal.DeleteAsync(0)
+	Corona.Panels.RubickAutoSteal.DeleteAsync(0)
 	Utils.ScriptLogMsg("Script disabled: Rubick AutoSteal", "#00ff00")
 }
 		else {
@@ -114,15 +114,15 @@ if (!checkbox.checked) {
 			Utils.ScriptLogMsg("Script disabled: Rubick AutoSteal", "#ff0000")
 		}
 	},onPreload: (): void => {
-		Fusion.Commands.RubickRefresh=()=>{
-			Fusion.Panels.RubickAutoSteal.DeleteAsync(0)
-			delete Fusion.Panels.RubickAutoSteal
+		Corona.Commands.RubickRefresh=()=>{
+			Corona.Panels.RubickAutoSteal.DeleteAsync(0)
+			delete Corona.Panels.RubickAutoSteal
 			RubickAutoStealF()
 			RubickAutoStealCreatePanel()
 		
 		}
-		Game.AddCommand("__RubickRefresh", Fusion.Commands.RubickRefresh, "", 0)
+		Game.AddCommand("__RubickRefresh", Corona.Commands.RubickRefresh, "", 0)
 	},
-	onDestroy: () => Fusion.OnTick.remove(RubickAutoStealCreatePanel)
+	onDestroy: () => Corona.OnTick.remove(RubickAutoStealCreatePanel)
 	
 }

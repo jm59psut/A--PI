@@ -1,21 +1,21 @@
 ﻿/*!
  * Created on Sun Mar 04 2018
  *
- * This file is part of Fusion.
- * Copyright (c) 2018 Fusion
+ * This file is part of Corona.
+ * Copyright (c) 2018 Corona
  *
- * Fusion is free software: you can redistribute it and/or modify
+ * Corona is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * Fusion is distributed in the hope that it will be useful,
+ * Corona is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with Fusion.  If not, see <http://www.gnu.org/licenses/>.
+ * along with Corona.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 var MeepoClassname = "npc_dota_hero_meepo"
@@ -39,8 +39,8 @@ function PoofAllMeeposToPos(To: Vector, Queue: boolean = false) {
 }
 
 function onPreloadF_Combo_Meepo(): void {
-	if(!Fusion.Commands.MeepoAutoPoof) {
-		Fusion.Commands.MeepoAutoPoof = (flag: number) => {
+	if(!Corona.Commands.MeepoAutoPoof) {
+		Corona.Commands.MeepoAutoPoof = (flag: number) => {
 			if(Players.GetPlayerSelectedHero(Game.GetLocalPlayerID()) !== MeepoClassname){
 				Utils.ScriptLogMsg("MeepoAutoPoof: Not Meepo", "#cccccc")
 				return
@@ -67,18 +67,18 @@ function onPreloadF_Combo_Meepo(): void {
 			}
 		}
 
-		Game.AddCommand("__MeepoAutoPoof_ToSelected", () => Fusion.Commands.MeepoAutoPoof(0), "", 0)
-		Game.AddCommand("__MeepoAutoPoof_ToCursor", () => Fusion.Commands.MeepoAutoPoof(1), "", 0)
-		Game.AddCommand("__MeepoAutoPoof_ToMain", () => Fusion.Commands.MeepoAutoPoof(2), "", 0)
+		Game.AddCommand("__MeepoAutoPoof_ToSelected", () => Corona.Commands.MeepoAutoPoof(0), "", 0)
+		Game.AddCommand("__MeepoAutoPoof_ToCursor", () => Corona.Commands.MeepoAutoPoof(1), "", 0)
+		Game.AddCommand("__MeepoAutoPoof_ToMain", () => Corona.Commands.MeepoAutoPoof(2), "", 0)
 	}
 
-	if(!Fusion.Commands.MeepoCombo) {
+	if(!Corona.Commands.MeepoCombo) {
 		var combo = new Combo()
 		combo.addDelay(caster => {
 			GetMeepos()
 				.filter(meepo => meepo !== caster)
 				.forEach(ent => Orders.CastTarget(ent, ent.AbilityByName("meepo_poof"), caster, false))
-			return caster.AbilityByName("meepo_poof").CastPoint - (Fusion.MyTick *
+			return caster.AbilityByName("meepo_poof").CastPoint - (Corona.MyTick *
 				(
 					1 + (caster.ItemByName("item_blink") !== undefined ? 1 : 0) +
 					(caster.AbilityByName("meepo_earthbind").Level > 0 ? 10 : 0) +
@@ -101,11 +101,11 @@ function onPreloadF_Combo_Meepo(): void {
 		combo.addAbility("item_diffusal_blade", EComboAction.CURSOR_ENEMY)
 		combo.addAbility("item_sheepstick", EComboAction.CURSOR_ENEMY)
 		combo.addAbility(/item_(urn_of_shadows|spirit_vessel)/, EComboAction.CURSOR_ENEMY)
-		Game.AddCommand("__MeepoCombo", Fusion.Commands.MeepoCombo = () => combo.execute(EntityManager.MyEnt), "", 0)
+		Game.AddCommand("__MeepoCombo", Corona.Commands.MeepoCombo = () => combo.execute(EntityManager.MyEnt), "", 0)
 	}
 
-	if(!Fusion.Commands.MeepoEarthBind) {
-		Fusion.Commands.MeepoEarthBind = pos => {
+	if(!Corona.Commands.MeepoEarthBind) {
+		Corona.Commands.MeepoEarthBind = pos => {
 			var playerID = Game.GetLocalPlayerID()
 
 			EntityManager.GetAllEntitiesByClassname(MeepoClassname).filter(ent =>
@@ -124,7 +124,7 @@ function onPreloadF_Combo_Meepo(): void {
 				return true
 			})
 		}
-		Game.AddCommand("__MeepoEarthBind", () => Fusion.Commands.MeepoEarthBind(Utils.CursorWorldVec), "", 0)
+		Game.AddCommand("__MeepoEarthBind", () => Corona.Commands.MeepoEarthBind(Utils.CursorWorldVec), "", 0)
 	}
 }
 

@@ -1,21 +1,21 @@
 /*!
  * Created on Sun Mar 04 2018
  *
- * This file is part of Fusion.
- * Copyright (c) 2018 Fusion
+ * This file is part of Corona.
+ * Copyright (c) 2018 Corona
  *
- * Fusion is free software: you can redistribute it and/or modify
+ * Corona is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * Fusion is distributed in the hope that it will be useful,
+ * Corona is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with Fusion.  If not, see <http://www.gnu.org/licenses/>.
+ * along with Corona.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 var blockUnAgr: boolean = false,
@@ -47,25 +47,25 @@ function UnAgrF(): void {
 module = {
 	name: "Auto UnAgr",
 	onPreload: () => {
-		if(!Fusion.Commands.AgrCreepsF) {
-			Fusion.Commands.AgrCreepsF = () => {
+		if(!Corona.Commands.AgrCreepsF) {
+			Corona.Commands.AgrCreepsF = () => {
 				var MyEnt = EntityManager.MyEnt
 				EntityManager.PlayersHeroEnts().filter(ent => ent.IsEnemy && ent.IsAlive && MyEnt.IsEntityInRange(ent, 520)).forEach(ent => {
 					Orders.AttackTarget(MyEnt, ent, false)
 					Orders.EntStop(MyEnt)
 				})
 			}
-			Game.AddCommand("__AgrCreeps", Fusion.Commands.AgrCreepsF, "", 0)
+			Game.AddCommand("__AgrCreeps", Corona.Commands.AgrCreepsF, "", 0)
 		}
 	},
 	onToggle: checkbox => {
 		if (checkbox.checked) {
-			Fusion.OnTick.push(UnAgrF)
+			Corona.OnTick.push(UnAgrF)
 			Utils.ScriptLogMsg("Script enabled: AgrUnAgr", "#00ff00")
 		} else {
-			Fusion.OnTick.remove(UnAgrF)
+			Corona.OnTick.remove(UnAgrF)
 			Utils.ScriptLogMsg("Script disabled: AgrUnAgr", "#ff0000")
 		}
 	},
-	onDestroy: () => Fusion.OnTick.remove(UnAgrF)
+	onDestroy: () => Corona.OnTick.remove(UnAgrF)
 }

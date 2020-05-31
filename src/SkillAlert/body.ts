@@ -1,21 +1,21 @@
 ﻿/*!
  * Created on Sun Mar 04 2018
  *
- * This file is part of Fusion.
- * Copyright (c) 2018 Fusion
+ * This file is part of Corona.
+ * Copyright (c) 2018 Corona
  *
- * Fusion is free software: you can redistribute it and/or modify
+ * Corona is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * Fusion is distributed in the hope that it will be useful,
+ * Corona is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with Fusion.  If not, see <http://www.gnu.org/licenses/>.
+ * along with Corona.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 /**
@@ -94,8 +94,8 @@ function SAlertEvery(): void {
 function AlertTarget(modifier, ent: Entity, buff: Buff): void {
 	const cb = CreateFollowParticle(modifier.particlepath, ent)
 	buff.OnDestroy(cb)
-	if(Fusion.Panels.ItemPanel !== undefined && Fusion.Configs.SkillAlert.Notify === "true" && panels[ent.id] === undefined) {
-		var A = $.CreatePanel("Panel", Fusion.Panels.ItemPanel, `Alert${ent.id}`)
+	if(Corona.Panels.ItemPanel !== undefined && Corona.Configs.SkillAlert.Notify === "true" && panels[ent.id] === undefined) {
+		var A = $.CreatePanel("Panel", Corona.Panels.ItemPanel, `Alert${ent.id}`)
 		A.BLoadLayoutFromString('\
 <root>\
 	<Panel style="width:100%;height:37px;background-color:#111;">\
@@ -114,7 +114,7 @@ function AlertTarget(modifier, ent: Entity, buff: Buff): void {
 			A.DeleteAsync(0)
 		})
 	}
-	if(Fusion.Configs.SkillAlert.EmitSound === "true" && modifier.soundName)
+	if(Corona.Configs.SkillAlert.EmitSound === "true" && modifier.soundName)
 		Game.EmitSound(modifier.soundName)
 }
 
@@ -127,8 +127,8 @@ function AlertTarget(modifier, ent: Entity, buff: Buff): void {
 function AlertPosition(modifier, vec: Vector, thinker: Entity, buff: Buff): void {
 	const cb = CreateTimerParticle(modifier.particlepath, vec)
 	buff.OnDestroy(cb)
-	if(Fusion.Panels.ItemPanel !== undefined && Fusion.Configs.SkillAlert.Notify === "true" && panels[thinker.id] === undefined) {
-		var A = $.CreatePanel("Panel", Fusion.Panels.ItemPanel, `Alert${thinker.id}`)
+	if(Corona.Panels.ItemPanel !== undefined && Corona.Configs.SkillAlert.Notify === "true" && panels[thinker.id] === undefined) {
+		var A = $.CreatePanel("Panel", Corona.Panels.ItemPanel, `Alert${thinker.id}`)
 		A.BLoadLayoutFromString("\
 <root>\
 	<Panel style='width:100%;height:37px;background-color:#111;'>\
@@ -145,7 +145,7 @@ function AlertPosition(modifier, vec: Vector, thinker: Entity, buff: Buff): void
 			A.DeleteAsync(0)
 		})
 	}
-	if (Fusion.Configs.SkillAlert.EmitSound === "true" && modifier.soundName)
+	if (Corona.Configs.SkillAlert.EmitSound === "true" && modifier.soundName)
 		Game.EmitSound(modifier.soundName)
 }
 
@@ -180,15 +180,15 @@ module = {
 	name: "SkillAlert",
 	onToggle: checkbox => {
 		if (checkbox.checked) {
-			Fusion.GetConfig("SkillAlert").then(config => {
-				Fusion.Configs.SkillAlert = config
-				Fusion.OnTick.push(SAlertEvery)
+			Corona.GetConfig("SkillAlert").then(config => {
+				Corona.Configs.SkillAlert = config
+				Corona.OnTick.push(SAlertEvery)
 			})
 			Utils.ScriptLogMsg("Script enabled: SkillAlert", "#00ff00")
 		} else {
-			Fusion.OnTick.remove(SAlertEvery)
+			Corona.OnTick.remove(SAlertEvery)
 			Utils.ScriptLogMsg("Script disabled: SkillAlert", "#ff0000")
 		}
 	},
-	onDestroy: () => Fusion.OnTick.remove(SAlertEvery)
+	onDestroy: () => Corona.OnTick.remove(SAlertEvery)
 }

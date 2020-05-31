@@ -2,12 +2,12 @@
  function CreateCustomRangeRadiusF(){
      var a=1200
             var MyEnt = Players.GetPlayerHeroEntityIndex( Game.GetLocalPlayerID() )
-            Fusion.Particles.CustomRangeRadius = ParticleManager.CreateParticle("particles/ui_mouseactions/range_display.vpcf", ParticleAttachment_t.PATTACH_ABSORIGIN_FOLLOW , MyEnt)
-            Particles.SetParticleControl(Fusion.Particles.CustomRangeRadius, 1, [a,0,0])
+            Corona.Particles.CustomRangeRadius = ParticleManager.CreateParticle("particles/ui_mouseactions/range_display.vpcf", ParticleAttachment_t.PATTACH_ABSORIGIN_FOLLOW , MyEnt)
+            Particles.SetParticleControl(Corona.Particles.CustomRangeRadius, 1, [a,0,0])
     }
     function Destroy(): void {
-        ParticleManager.DestroyParticleEffect(Fusion.Particles.CustomRangeRadius.get(a), true)
-		Fusion.Particles.CustomRangeRadius.delete(a)
+        ParticleManager.DestroyParticleEffect(Corona.Particles.CustomRangeRadius.get(a), true)
+		Corona.Particles.CustomRangeRadius.delete(a)
     }  
     module = {
         name: "Blink Range",
@@ -22,7 +22,7 @@
                 Utils.ScriptLogMsg("Script disabled: Blink Range", "#ff0000")
             }
         },
-        onDestroy: () => Fusion.OnTick.remove(Destroy)
+        onDestroy: () => Corona.OnTick.remove(Destroy)
     }
     
     

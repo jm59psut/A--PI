@@ -23,7 +23,7 @@ module = {
         combo.addAbility("visage_grave_chill",EComboAction.CURSOR_ENEMY)
         combo.addDelay((caster: Entity, target: Entity): number => {
         let VisageModifier = target.BuffByName("modifier_visage_soul_assumption")
-        return VisageModifier.Duration - VisageModifier.ElapsedTime - caster.AbilityByName("visage_soul_assumption").CastPoint + Fusion.MyTick * /*1.*/0.83
+        return VisageModifier.Duration - VisageModifier.ElapsedTime - caster.AbilityByName("visage_soul_assumption").CastPoint + Corona.MyTick * /*1.*/0.83
     })
     combo.addAbility(/item_(urn_of_shadows|spirit_vessel)/, EComboAction.CURSOR_ENEMY)
         combo.addAbility("visage_soul_assumption",EComboAction.CURSOR_ENEMY)
@@ -32,9 +32,9 @@ module = {
 		combo.addAbility("item_crimson_guard", EComboAction.NO_TARGET)
 		combo.addAbility("item_black_king_bar", EComboAction.NO_TARGET)
 		combo.addAbility("item_satanic", EComboAction.CURSOR_ENEMY)
-		if(!Fusion.Commands.VisageCombo) {
-			Fusion.Commands.VisageCombo = () => combo.execute(EntityManager.MyEnt)
-			Game.AddCommand("__VisageCombo", Fusion.Commands.VisageCombo, "", 0)
+		if(!Corona.Commands.VisageCombo) {
+			Corona.Commands.VisageCombo = () => combo.execute(EntityManager.MyEnt)
+			Game.AddCommand("__VisageCombo", Corona.Commands.VisageCombo, "", 0)
 		}
 	},
 	isVisible:false

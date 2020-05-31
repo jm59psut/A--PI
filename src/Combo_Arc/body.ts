@@ -1,21 +1,21 @@
 /*!
  * Created on Sun Mar 04 2018
  *
- * This file is part of Fusion.
- * Copyright (c) 2018 Fusion
+ * This file is part of Corona.
+ * Copyright (c) 2018 Corona
  *
- * Fusion is free software: you can redistribute it and/or modify
+ * Corona is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * Fusion is distributed in the hope that it will be useful,
+ * Corona is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with Fusion.  If not, see <http://www.gnu.org/licenses/>.
+ * along with Corona.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 var combo: Combo
@@ -60,19 +60,19 @@ module = {
 		combo.addAbility("item_mask_of_madness", EComboAction.NO_TARGET)
 		combo.addAbility("item_hurricane_pike", EComboAction.CURSOR_ENEMY)
 
-		if(!Fusion.Commands.ArcCombo) {
-			Fusion.Commands.ArcCombo = () => {
+		if(!Corona.Commands.ArcCombo) {
+			Corona.Commands.ArcCombo = () => {
 				const MyEnt = EntityManager.MyEnt
 	
 				const tempest_double = MyEnt.AbilityByName("arc_warden_tempest_double")
 				var ready = tempest_double.IsCooldownReady
 				if(ready) Orders.CastNoTarget(MyEnt, tempest_double, false)
-				$.Schedule(ready ? tempest_double.CastPoint + Fusion.MyTick : 0, () => {
+				$.Schedule(ready ? tempest_double.CastPoint + Corona.MyTick : 0, () => {
 					GetRealArcWardens().forEach(arc => combo.execute(arc))
 				})
 			}
 	
-			Game.AddCommand("__ArcCombo", Fusion.Commands.ArcCombo, "", 0)
+			Game.AddCommand("__ArcCombo", Corona.Commands.ArcCombo, "", 0)
 		}
 	},
 	isVisible: false

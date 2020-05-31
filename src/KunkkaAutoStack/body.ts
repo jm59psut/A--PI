@@ -16,7 +16,7 @@ function KunkkaAutoStack_Notify(cur_time: number) {
 		return
 	
 	last_notify_time = cur_time / 60
-	var A = $.CreatePanel("Panel", Fusion.Panels.Main, "KunkkaAutoStack_Notify")
+	var A = $.CreatePanel("Panel", Corona.Panels.Main, "KunkkaAutoStack_Notify")
 	A.BLoadLayoutFromString(notify_xml, false, false)
 	Game.EmitSound("kunkka_kunk_bounty_01")
 	$.Schedule(2, () => A.DeleteAsync(0))
@@ -33,14 +33,14 @@ function KunkkaAutoStack_OnUpdate() {
 	if (
 		Math.abs (
 			(cur_time % 60) - 47
-		) <= Fusion.MyTick
+		) <= Corona.MyTick
 	)
 		KunkkaAutoStack_Notify(cur_time)
 	if (
 		Math.abs (
 			(cur_time % 60) -
 			(60 - (torrent.CastPoint + torrent.SpecialValueFor("delay") + 0.6)) // it tooks ~0.6sec to raise y coord of creeps
-		) >= Fusion.MyTick
+		) >= Corona.MyTick
 	)
 		return
 	var my_vec: Vector = EntityManager.MyEnt.AbsOrigin,
@@ -48,7 +48,7 @@ function KunkkaAutoStack_OnUpdate() {
 	spots.filter(spot => spot.PointDistance(my_vec) < cast_range).orderBy(spot => spot.PointDistance(my_vec)).every(spot => {
 		Orders.CastPosition(EntityManager.MyEnt, torrent, spot, OrderQueueBehavior_t.DOTA_ORDER_QUEUE_NEVER)
 		is_stacking = true
-		$.Schedule(torrent.CastPoint + Fusion.MyTick, () => is_stacking = false)
+		$.Schedule(torrent.CastPoint + Corona.MyTick, () => is_stacking = false)
 		return false
 	})
 }
@@ -57,11 +57,11 @@ module = {
 	name: "KunkkaAutoStack",
 	onPreload: () => {
 		spots = spots.map((spot: [number, number, number]) => new Vector(spot))
-		Fusion.GetXML("KunkkaAutoStack/notify").then(response => notify_xml = response)
-		if(Fusion.Commands.KunkkaAutoStack || Fusion.Commands.KunkkaAutoStack_Notify)
+		Corona.GetXML("KunkkaAutoStack/notify").then(response => notify_xml = response)
+		if(Corona.Commands.KunkkaAutoStack || Corona.Commands.KunkkaAutoStack_Notify)
 			return
 	
-		Fusion.Commands.KunkkaAutoStack = () => {
+		Corona.Commands.KunkkaAutoStack = () => {
 			var MyEnt = EntityManager.MyEnt,
 				torrent = MyEnt.AbilityByName("kunkka_torrent"),
 				torrent_radius = torrent.SpecialValueFor("radius"),
@@ -75,18 +75,18 @@ module = {
 			} else
 				$.Msg("can't stack it.")
 		}
-		Game.AddCommand("__FindPerfectTorrent", Fusion.Commands.KunkkaAutoStack, "", 0)
-		Fusion.Commands.KunkkaAutoStack_Notify = true
+		Game.AddCommand("__FindPerfectTorrent", Corona.Commands.KunkkaAutoStack, "", 0)
+		Corona.Commands.KunkkaAutoStack_Notify = true
 		Game.AddCommand("__KunkkaAutoStack_Notify", KunkkaAutoStack_Notify, "", 0)
 	},
 	onToggle: checkbox => {
 		if (checkbox.checked) {
-			Fusion.OnUpdate.push(KunkkaAutoStack_OnUpdate)
+			Corona.OnUpdate.push(KunkkaAutoStack_OnUpdate)
 			Utils.ScriptLogMsg("Script enabled: KunkkaAutoStack", "#00ff00")
 		} else {
 			module.onDestroy()
 			Utils.ScriptLogMsg("Script disabled: KunkkaAutoStack", "#ff0000")
 		}
 	},
-	onDestroy: () => Fusion.OnUpdate.remove(KunkkaAutoStack_OnUpdate)
+	onDestroy: () => Corona.OnUpdate.remove(KunkkaAutoStack_OnUpdate)
 }

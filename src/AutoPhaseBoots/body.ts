@@ -15,12 +15,12 @@ module = {
 name: "Auto PhaseBoots",
 onToggle: checkbox => {
     if (checkbox.checked) {
-        Fusion.OnTick.push(AutoPhaseBoots)
+        Corona.OnTick.push(AutoPhaseBoots)
         Utils.ScriptLogMsg("Script enabled: AutoPhaseBoots", "#00ff00")
     } else {
-        Fusion.OnTick.remove(AutoPhaseBoots)
+        Corona.OnTick.remove(AutoPhaseBoots)
         Utils.ScriptLogMsg("Script disabled: AutoPhaseBoots", "#ff0000")
     }
 },
-onDestroy: () => Fusion.OnTick.remove(AutoPhaseBoots)
+onDestroy: () => Corona.OnTick.remove(AutoPhaseBoots)
 }

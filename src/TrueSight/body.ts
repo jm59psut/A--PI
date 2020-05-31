@@ -1,21 +1,21 @@
 /*!
  * Created on Sun Mar 04 2018
  *
- * This file is part of Fusion.
- * Copyright (c) 2018 Fusion
+ * This file is part of Corona.
+ * Copyright (c) 2018 Corona
  *
- * Fusion is free software: you can redistribute it and/or modify
+ * Corona is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * Fusion is distributed in the hope that it will be useful,
+ * Corona is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with Fusion.  If not, see <http://www.gnu.org/licenses/>.
+ * along with Corona.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 var truesight_modifiers = {
@@ -62,10 +62,10 @@ function TrueSightF(): void {
 }
 
 function CreateAlert_Panel(ent: Entity, buff: Buff, abil_name: string): void {
-	if(Fusion.Panels.ItemPanel === undefined)
+	if(Corona.Panels.ItemPanel === undefined)
 		return
 
-	var A = $.CreatePanel("Panel", Fusion.Panels.ItemPanel, `Alert ${buff}`),
+	var A = $.CreatePanel("Panel", Corona.Panels.ItemPanel, `Alert ${buff}`),
 		caster = buff.Caster,
 		isAbility = /item_/.test(abil_name),
 		isWard = caster === undefined
@@ -105,7 +105,7 @@ module = {
 	name: "TrueSight Detector",
 	onToggle: checkbox => {
 		if (checkbox.checked) {
-			Fusion.OnTick.push(TrueSightF)
+			Corona.OnTick.push(TrueSightF)
 			Utils.ScriptLogMsg("Script enabled: TrueSight Detector", "#00ff00")
 		} else {
 			module.onDestroy()
@@ -113,7 +113,7 @@ module = {
 		}
 	},
 	onDestroy: () => {
-		Fusion.OnTick.remove(TrueSightF)
+		Corona.OnTick.remove(TrueSightF)
 		onDisable()
 	}
 }

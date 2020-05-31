@@ -1,21 +1,21 @@
 /*!
  * Created on Sun Mar 04 2018
  *
- * This file is part of Fusion.
- * Copyright (c) 2018 Fusion
+ * This file is part of Corona.
+ * Copyright (c) 2018 Corona
  *
- * Fusion is free software: you can redistribute it and/or modify
+ * Corona is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * Fusion is distributed in the hope that it will be useful,
+ * Corona is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with Fusion.  If not, see <http://www.gnu.org/licenses/>.
+ * along with Corona.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 var IgnoreBuffs: any = {
@@ -840,7 +840,7 @@ class Entity {
 	 */
 	get ManaThinkRegen(): number { return Entities.GetManaThinkRegen(this.id) }
 
-	// Fusion Functions
+	// Corona Functions
 	/**
 	 * @returns {Ability[]} ability array of this entity (except talents and generics)
 	 */
@@ -880,7 +880,7 @@ class Entity {
 	/**
 	 * @returns {Vector} position of this entity after force staff usage
 	 */
-	get ForceStaffPos(): Vector { return this.InFront(Fusion.ForceStaffUnits) }
+	get ForceStaffPos(): Vector { return this.InFront(Corona.ForceStaffUnits) }
 
 	/**
 	 * @returns {number} returns ideal speed of this entity if it's moving or 0 if it isn't moving

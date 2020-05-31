@@ -1,21 +1,21 @@
 ﻿/*!
  * Created on Sun Mar 04 2018
  *
- * This file is part of Fusion.
- * Copyright (c) 2018 Fusion
+ * This file is part of Corona.
+ * Copyright (c) 2018 Corona
  *
- * Fusion is free software: you can redistribute it and/or modify
+ * Corona is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * Fusion is distributed in the hope that it will be useful,
+ * Corona is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with Fusion.  If not, see <http://www.gnu.org/licenses/>.
+ * along with Corona.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 var EzTechies_config = { // do not edit this unless you know what you're doing!
@@ -80,7 +80,7 @@ function RemoteMines_EzTechies(techies: Entity, ents: Entity[]): void {
 	EzTechies.RMines.filter(([rmine]) => ents.some(ent => rmine.IsEntityInRange(ent, EzTechies.TriggerRadius * 0.85))).every(([rmine, dmg]) => {
 		RMinesToBlow.push(rmine)
 		RMinesDmg += dmg
-		if(Fusion.debug)
+		if(Corona.debug)
 			$.Msg("EzTechies", `There's ${RMinesDmg}, needed ${NeedMagicDmg}`)
 		if(RMinesDmg > NeedMagicDmg) {
 			RMinesToBlow.forEach(rmine => Orders.CastNoTarget(rmine, rmine.AbilityByName("techies_remote_mines_self_detonate"), false))
@@ -91,11 +91,11 @@ function RemoteMines_EzTechies(techies: Entity, ents: Entity[]): void {
 }
 
 function SubscribeEvents(): void {
-	if(!Fusion.Subscribes.EzTechies.MinesSpawn)
-		Fusion.Subscribes.EzTechiesMinesSpawn = GameEvents.Subscribe("npc_spawned", event => HandleEntity(EntityManager.EntityByID(event.entindex)))
+	if(!Corona.Subscribes.EzTechies.MinesSpawn)
+		Corona.Subscribes.EzTechiesMinesSpawn = GameEvents.Subscribe("npc_spawned", event => HandleEntity(EntityManager.EntityByID(event.entindex)))
 
-	if(!Fusion.Subscribes.EzTechies.MineDeath)
-		Fusion.Subscribes.EzTechiesMineDeath = GameEvents.Subscribe("entity_killed", event => {
+	if(!Corona.Subscribes.EzTechies.MineDeath)
+		Corona.Subscribes.EzTechiesMineDeath = GameEvents.Subscribe("entity_killed", event => {
 			var ent = event.entindex_killed
 
 			if(ent.UnitName === "npc_dota_techies_remote_mine")
@@ -132,13 +132,13 @@ module = {
 		}
 	},
 	onPreload: (): void => {
-		Fusion.Subscribes.EzTechies = []
+		Corona.Subscribes.EzTechies = []
 		if(EzTechies.RMines.length === 0)
 			HandleMines()
 		SubscribeEvents()
 	
-		if(!Fusion.Commands.EzTechies) {
-			Fusion.Commands.EzTechies = () => {
+		if(!Corona.Commands.EzTechies) {
+			Corona.Commands.EzTechies = () => {
 				try {
 					var techies = EzTechies.Techies
 					if(!techies || techies.IsEnemy) {
@@ -151,12 +151,12 @@ module = {
 					RemoteMines(techies, ents.filter(ent => ent.MagicMultiplier !== 0))
 				} catch(e) { $.Msg("EzTechies", e) }
 			}
-			Game.AddCommand("__EzTechies", Fusion.Commands.EzTechies, "", 0)
+			Game.AddCommand("__EzTechies", Corona.Commands.EzTechies, "", 0)
 		}
 	},
 	onDestroy: () => {
-		if(Fusion.Subscribes.EzTechies)
-			Fusion.Subscribes.EzTechies.forEach(sub => GameEvents.Unsubscribe(sub))
+		if(Corona.Subscribes.EzTechies)
+			Corona.Subscribes.EzTechies.forEach(sub => GameEvents.Unsubscribe(sub))
 		if(EzTechies.Particles)
 		EzTechies.Particles.forEach(par => ParticleManager.DestroyParticleEffect(par, true))
 	},

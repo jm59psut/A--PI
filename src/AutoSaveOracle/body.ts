@@ -96,13 +96,13 @@ module = {
 	name: "Oracle Auto-Save",
 	onToggle: checkbox => {
 		if (checkbox.checked) {
-			Fusion.OnTick.push(RG_OracleSavecheckbox)
+			Corona.OnTick.push(RG_OracleSavecheckbox)
 			Utils.ScriptLogMsg("Script enabled: Oracle Auto-Save", "#00ff00")
 		} else {
 			module.onDestroy()
 			Utils.ScriptLogMsg("Script disabled: Oracle Auto-Save", "#ff0000")
 		}
 	},
-	onDestroy: () => Fusion.OnTick.remove(RG_OracleSavecheckbox)
+	onDestroy: () => Corona.OnTick.remove(RG_OracleSavecheckbox)
 }
 

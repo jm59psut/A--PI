@@ -1,21 +1,21 @@
 ﻿/*!
  * Created on Sun Mar 04 2018
  *
- * This file is part of Fusion.
- * Copyright (c) 2018 Fusion
+ * This file is part of Corona.
+ * Copyright (c) 2018 Corona
  *
- * Fusion is free software: you can redistribute it and/or modify
+ * Corona is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * Fusion is distributed in the hope that it will be useful,
+ * Corona is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with Fusion.  If not, see <http://www.gnu.org/licenses/>.
+ * along with Corona.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 var NoTarget: number[] = [],
@@ -35,7 +35,7 @@ function CallMines(techies: Entity, ent: Entity, callback: Function, explosionCa
 		RMinesDmg += dmg
 		var theres = ent.CalculateDamage(RMinesDmg, DAMAGE_TYPES.DAMAGE_TYPE_MAGICAL)
 		if(TargetHP < theres) {
-			if(Fusion.debug)
+			if(Corona.debug)
 				$.Msg("EzTechiesAuto", `There's ${theres}, needed ${TargetHP} for ${ent.UnitName}`)
 			explosionCallback(techies, ent, RMinesToBlow, RMinesDmg)
 			return false
@@ -81,7 +81,7 @@ function NeedToTriggerMine(rmine: Entity, ent: Entity, forcestaff: boolean = fal
 		TriggerRadius -= ent.Speed * (EzTechies.blowDelay / 30)
 	
 	return EzTechiesAuto_config.use_prediction
-		? ent.InFront((ent.Speed_IsMoving * BlowDelay) + (forcestaff ? Fusion.ForceStaffUnits : 0)).PointDistance(rmine.AbsOrigin) <= TriggerRadius
+		? ent.InFront((ent.Speed_IsMoving * BlowDelay) + (forcestaff ? Corona.ForceStaffUnits : 0)).PointDistance(rmine.AbsOrigin) <= TriggerRadius
 		: forcestaff
 			? rmine.AbsOrigin.PointDistance(ent.ForceStaffPos) <= TriggerRadius
 			: rmine.IsEntityInRange(ent, TriggerRadius)
@@ -122,7 +122,7 @@ function RemoteMines(techies: Entity, HEnts: Entity[]): void {
 function EzTechiesF(): void {
 	const techies = EzTechies.Techies
 	if(techies === undefined || techies.IsEnemy) {
-		Fusion.OnTick.remove(EzTechiesF)
+		Corona.OnTick.remove(EzTechiesF)
 		Utils.ScriptLogMsg("[EzTechiesAuto] Isn't techies, also don't have one in team", "#ff0000")
 		return
 	}
@@ -134,15 +134,15 @@ function EzTechiesF(): void {
 
 module = {
 	name: "EzTechiesAuto",
-	onPreload: () => Fusion.GetConfig("EzTechiesAuto").then(config => EzTechiesAuto_config = config),
+	onPreload: () => Corona.GetConfig("EzTechiesAuto").then(config => EzTechiesAuto_config = config),
 	onToggle: checkbox => {
 		if (checkbox.checked) {
-			Fusion.OnTick.push(EzTechiesF)
+			Corona.OnTick.push(EzTechiesF)
 			Utils.ScriptLogMsg("Script enabled: EzTechiesAuto", "#00ff00")
 		} else {
-			Fusion.OnTick.remove(EzTechiesF)
+			Corona.OnTick.remove(EzTechiesF)
 			Utils.ScriptLogMsg("Script disabled: EzTechiesAuto", "#ff0000")
 		}
 	},
-	onDestroy: () => Fusion.OnTick.remove(EzTechiesF)
+	onDestroy: () => Corona.OnTick.remove(EzTechiesF)
 }

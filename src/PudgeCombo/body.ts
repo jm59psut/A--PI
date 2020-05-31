@@ -1,28 +1,28 @@
 /*!
  * Created on Sun Mar 04 2018
  *
- * This file is part of Fusion.
- * Copyright (c) 2018 Fusion
+ * This file is part of Corona.
+ * Copyright (c) 2018 Corona
  *
- * Fusion is free software: you can redistribute it and/or modify
+ * Corona is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * Fusion is distributed in the hope that it will be useful,
+ * Corona is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with Fusion.  If not, see <http://www.gnu.org/licenses/>.
+ * along with Corona.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 var no_rotating = false
 function Hook(MyEnt: Entity, ent: Entity, callback: Function): void {
 	if(MyEnt.IsMoving) {
 		Orders.EntStop(MyEnt, false)
-		$.Schedule(Fusion.MyTick * 3, () => Hook(MyEnt, ent, callback))
+		$.Schedule(Corona.MyTick * 3, () => Hook(MyEnt, ent, callback))
 		return
 	}
 
@@ -33,8 +33,8 @@ function Hook(MyEnt: Entity, ent: Entity, callback: Function): void {
 		hookwidth = hook.SpecialValueFor("hook_width") / 2,
 		reachtime = MyEnt.RangeToUnit(ent) / hookSpeed,
 		delay = hook.CastPoint,
-		schedDelay = delay - Fusion.MyTick * 2,
-		time = reachtime + delay + Fusion.MyTick + (no_rotating ? Utils.Angle2Vector(myVec.AngleBetweenTwoVectors(ent.AbsOrigin)).RotationTime(0.7) : 0),
+		schedDelay = delay - Corona.MyTick * 2,
+		time = reachtime + delay + Corona.MyTick + (no_rotating ? Utils.Angle2Vector(myVec.AngleBetweenTwoVectors(ent.AbsOrigin)).RotationTime(0.7) : 0),
 		predict = ent.VelocityWaypoint(time)
 
 	if(!MyEnt.IsEntityInRange(ent, hookDist + hookwidth))
@@ -44,10 +44,10 @@ function Hook(MyEnt: Entity, ent: Entity, callback: Function): void {
 		predict = myVec.ExtendVector(predict, 1)
 	Orders.CastPosition(MyEnt, hook, predict, false)
 	$.Schedule(schedDelay, () => {
-		var retEnt = ent //CancelHook(MyEnt, hookDist, Fusion.MyTick * 2, hookwidth, angleBetween)
+		var retEnt = ent //CancelHook(MyEnt, hookDist, Corona.MyTick * 2, hookwidth, angleBetween)
 		if(retEnt)
-			$.Schedule(time - schedDelay - Fusion.MyTick * 2, () => {
-				var retEnt = ent //CancelHook(MyEnt, hookDist, Fusion.MyTick * 2, hookwidth, angleBetween)
+			$.Schedule(time - schedDelay - Corona.MyTick * 2, () => {
+				var retEnt = ent //CancelHook(MyEnt, hookDist, Corona.MyTick * 2, hookwidth, angleBetween)
 				if(retEnt)
 					callback(retEnt, hookSpeed)
 			})
@@ -128,10 +128,10 @@ module = {
 	name: "Pudge Combo",
 	isVisible: false,
 	onPreload: (): void => {
-		if(Fusion.Commands.PudgeCombo)
+		if(Corona.Commands.PudgeCombo)
 			return
 	
-		Fusion.Commands.PudgeCombo = () => {
+		Corona.Commands.PudgeCombo = () => {
 			var MyEnt = EntityManager.MyEnt,
 				ent = Utils.NearestToMouse(MyEnt, 1000, true)
 			if(ent === undefined)
@@ -145,6 +145,6 @@ module = {
 			})
 		}
 	
-		Game.AddCommand("__PudgeCombo", Fusion.Commands.PudgeCombo, "", 0)
+		Game.AddCommand("__PudgeCombo", Corona.Commands.PudgeCombo, "", 0)
 	}
 }

@@ -1,21 +1,21 @@
 ﻿/*!
  * Created on Sun Mar 04 2018
  *
- * This file is part of Fusion.
- * Copyright (c) 2018 Fusion
+ * This file is part of Corona.
+ * Copyright (c) 2018 Corona
  *
- * Fusion is free software: you can redistribute it and/or modify
+ * Corona is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * Fusion is distributed in the hope that it will be useful,
+ * Corona is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with Fusion.  If not, see <http://www.gnu.org/licenses/>.
+ * along with Corona.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 var feeder = false
@@ -43,12 +43,12 @@ module = {
 	name: "Anti AFK",
 	onToggle: checkbox => {
 		if(checkbox.checked) {
-			Fusion.OnTick.push(AFK)
+			Corona.OnTick.push(AFK)
 			Utils.ScriptLogMsg("Script enabled: AntiAFK", "#00ff00")
 		} else {
-			Fusion.OnTick.remove(AFK)
+			Corona.OnTick.remove(AFK)
 			Utils.ScriptLogMsg("Script disabled: AntiAFK", "#ff0000")
 		}
 	},
-	onDestroy: () => Fusion.OnTick.remove(AFK)
+	onDestroy: () => Corona.OnTick.remove(AFK)
 }

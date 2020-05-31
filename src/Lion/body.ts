@@ -131,7 +131,7 @@ module = {
 	name: "Lion Autoulti",
 	onToggle: checkbox => {
 		if (checkbox.checked) {
-            Fusion.OnTick.push(LionF)
+            Corona.OnTick.push(LionF)
 		
 			Utils.ScriptLogMsg("Script enabled: LION ULTI", "#00ff00")
 		} else {
@@ -139,5 +139,5 @@ module = {
 			Utils.ScriptLogMsg("Script disabled: LION ULTI", "#ff0000")
 		}
 	},
-	onDestroy: () => Fusion.OnTick.remove(LionF)
+	onDestroy: () => Corona.OnTick.remove(LionF)
 }
