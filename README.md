@@ -4,6 +4,8 @@
 
 Fully implemented JS Panorma API for Dota 2 for Windows Platform
 
+WARNING:I AM NOT RESPONSIBLE FOR BANS!!!!!!!!!!
+
 
 ## Installation
 
