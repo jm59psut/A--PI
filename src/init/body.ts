@@ -386,7 +386,6 @@ function WaitForGameStart(): void {
 			InstallMainHUD()
 			SetCameraPitch(60)
 			Game.ServerCmd('bind Home __TogglePanel')
-			Game.AddCommand('__MapHack',()=>'dota_use_particle_fow 0;fog_enable 0;r_farz 20000;dota_camera_distance 1134;bind Home __TogglePanel;fow_client_nofiltering 1;dota_new_player false',"",0)
 			Game.AddCommand("_MouseUp", () => ChangeCamDist(cam_dist_struct.lastValue - (GameUI.IsControlDown() ? 25 : 0)), "", 0)
 			Game.AddCommand("_MouseDown", () => ChangeCamDist(cam_dist_struct.lastValue + (GameUI.IsControlDown() ? 25 : 0)), "", 0)
 			Game.AddCommand("__ReloadCorona", Corona.ReloadCorona, "", 0)
