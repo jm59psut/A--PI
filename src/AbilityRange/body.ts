@@ -112,7 +112,7 @@ function onToggleF(checkbox: Panel): void {
 }
 
 module = {
-	name: "Ability Range",
+	name: "Ability Range [Beta]",
 	onPreload: (): void => {
 		if(Corona.Commands.AbilityRange_Rotate)
 			return

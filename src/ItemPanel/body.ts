@@ -97,7 +97,7 @@ function ItemPanelLoad(): void {
 }
 
 module = {
-	name: "Item Panel",
+	name: "Item Panel [STABLE]",
 	onPreload: () => Corona.GetXML("ItemPanel/panel").then(response => layout_String = response),
 	onToggle: checkbox => {
 		if (checkbox.checked) {

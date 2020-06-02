@@ -194,7 +194,7 @@ function TransformToAvailable(abil_arrays: ([string, boolean] | [string, boolean
 }
 
 module = {
-	name: "Anti Initiation",
+	name: "Anti Initiation [HUGE FPS DROP]",
 	onToggle: checkbox => {
 		if (checkbox.checked) {
 			Abils = TransformToAvailable(Abils_)

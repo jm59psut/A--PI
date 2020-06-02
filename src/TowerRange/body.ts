@@ -33,7 +33,7 @@ function TowerRangeCleanUp() {
 	}
 }
 module = {
-	name: "Tower Range",
+	name: "Tower Range [STABLE]",
 	onToggle: checkbox => {
 		if (checkbox.checked) {
 			TowerLoad()		

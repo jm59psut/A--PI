@@ -103,7 +103,7 @@ function AntiInitiationF2(){
 	
 
 module = {
-	name: "Anti Initiation 2.0",
+	name: "Anti Initiation 2.0 [HUGE FPS DROP]",
 	onToggle: checkbox => {
 		if (checkbox.checked) {
 			function f(){ $.Schedule( 0.01,function(){

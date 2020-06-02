@@ -10,6 +10,7 @@
 		  
 	
 		<Panel id="Main" >
+	
 		<Panel id="top-menu">
 		<Image src='https://i.imgur.com/Oec9AjJ.png' style='width: 250px; height: 30px;'/>
 		</Panel>
@@ -26,6 +27,7 @@
 			<Button id="Reload">
 				<Label id="ReloadText" text="Reload scripts"/>
 			</Button>
+		
 			<Label id="ScriptLogName" text="Script log"/>
 			<Panel id="ScriptLog"/>
 			<Panel id="bottom-menu">

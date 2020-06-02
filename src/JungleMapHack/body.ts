@@ -81,7 +81,7 @@ function JungleMapHack_OnUpdate() {
 }
 
 module = {
-	name: "Jungle Map Hack",
+	name: "Jungle Map Hack [FPS DROP]",
 	onPreload: () => {
 		Corona.Panels.JungleMapHack = []
 		Corona.GetXML("JungleMapHack/panel").then(xml => panel_layout = xml)

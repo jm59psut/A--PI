@@ -67,16 +67,18 @@ function OnUpdate_EMB(): void {
 			manabar = $.CreatePanel("Panel", MainHud, "EnemyManaBar")
 			manabar.BLoadLayoutFromString(manabar_layout, false, false)
 			Corona.Panels.EnemyManaBars[ent.id] = manabar
+			
 		}
 
 		if(manabar === undefined)
 			manabar = Corona.Panels.EnemyManaBars[ent.id]
 		manabar.style.position = `${uixp}% ${uiyp}% 0`
+		
 	})
 }
 
 module = {
-	name: "Enemy ManaBars",
+	name: "Enemy ManaBars [STABLE]",
 	onPreload: () => {
 		DeleteAll_EMB() // as it defines variables
 		Corona.GetXML("EnemyManaBars/manabar").then(xml => manabar_layout = xml)

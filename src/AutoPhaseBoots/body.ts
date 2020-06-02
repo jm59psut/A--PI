@@ -12,7 +12,7 @@ return
 }
 
 module = {
-name: "Auto PhaseBoots",
+name: "Auto PhaseBoots [STABLE]",
 onToggle: checkbox => {
     if (checkbox.checked) {
         Corona.OnTick.push(AutoPhaseBoots)

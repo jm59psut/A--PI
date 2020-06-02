@@ -540,7 +540,7 @@ function AutoSteal(): void {
 }
 
 module = {
-	name: "Auto Steal",
+	name: "Auto Steal [BETA] [FPS DROP]",
 	onToggle: checkbox => {
 		if (checkbox.checked) {
 			Corona.OnTick.push(AutoSteal)

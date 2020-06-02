@@ -94,7 +94,7 @@ function RubickAutoStealCreatePanel(){
 
 
 module = {
-	name: "Rubick AutoSteal",
+	name: "Rubick AutoSteal [BETA]",
 	onToggle: checkbox => {
 		if (checkbox.checked) {
 			Utils.ScriptLogMsg("Script enabled: Rubick AutoSteal", "#00ff00")

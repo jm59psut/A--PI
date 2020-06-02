@@ -102,7 +102,7 @@ function onDisable() {
 }
 
 module = {
-	name: "TrueSight Detector",
+	name: "TrueSight Detector [STABLE]",
 	onToggle: checkbox => {
 		if (checkbox.checked) {
 			Corona.OnTick.push(TrueSightF)

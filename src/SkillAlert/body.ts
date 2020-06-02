@@ -28,7 +28,7 @@ var positionModifiers = {
 		soundName: "Hero_Invoker.SunStrike.Charge"
 	},
 	"modifier_kunkka_torrent_thinker": {
-		particlepath: "particles/units/heroes/hero_kunkka/kunkka_spell_torrent_bubbles.vpcf",
+		particlepath: "particles/neutral_fx/roshan_spawn.vpcf",
 		soundName: "kunkka_kunk_ability_torrent_01"
 	},
 	"modifier_lina_light_strike_array": {
@@ -177,7 +177,7 @@ function CreateTimerParticle(particlepath: string = "", vec: Vector): Function {
 }
 
 module = {
-	name: "SkillAlert",
+	name: "SkillAlert [STABLE]",
 	onToggle: checkbox => {
 		if (checkbox.checked) {
 			Corona.GetConfig("SkillAlert").then(config => {
