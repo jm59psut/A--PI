@@ -80,7 +80,7 @@ function SnatcherF() {
 }
 
 module = {
-	name: "Snatcher",
+	name: "Snatcher [BETA] [UNSTABLE]",
 	onToggle: checkbox => {
 		if (checkbox.checked) {
             CreateParticle()
