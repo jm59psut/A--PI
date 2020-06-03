@@ -1,6 +1,5 @@
 # Corona JS Hack
 > Fully working Dota 2 Hack/Script/Cheats (Free and Opensource API)
-<img src="https://i.imgur.com/9Lgj8AF.png">
 <p align="center">
 <img src="https://i.imgur.com/xHQKu6e.png" alt="look">
 <img src="https://i.imgur.com/2vlLUVg.png" alt="look">
