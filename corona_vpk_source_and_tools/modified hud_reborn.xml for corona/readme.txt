@@ -1,0 +1,1 @@
+In order to use this into Dota 2 you need to compile(transform) this xml into vxml format using dota 2 tools in workshop and after that compile it into vpk file
