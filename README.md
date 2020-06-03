@@ -1,6 +1,10 @@
 # Corona JS Hack
 > Fully working Dota 2 Hack/Script/Cheats (Free and Opensource API)
-<img src="https://i.imgur.com/9Lgj8AF.png">
+<p align="center">
+<img src="https://i.imgur.com/xHQKu6e.png" alt="look">
+<img src="https://i.imgur.com/2vlLUVg.png" alt="look">
+<img src="https://i.imgur.com/dMnTqXs.png" alt="look">
+</p>
 
 Fully implemented JS Panorma API for Dota 2 for Windows Platform
 
@@ -75,7 +79,7 @@ Working on adding slider and keybinder in the UI
 You will need Visual Studio Code or other Text Editor
 ```
 To Develop New Scripts:
-1)Open the folder src in Visual Studio Code
+1)Open the extracted folder, make sure src, Corona.ts and dota2.d.ts are inside using  Visual Studio Code
 2)Start writing new body.ts file inside another folder for example src/testscript/body.ts
 After developing just rerun build.bat
 and start.bat
@@ -101,7 +105,7 @@ and start.bat
 17)Oracle Auto Save (same as Dazzle auto save DO NOT USE IT UNSTABLE)
 18)FOW Fix (this file is patched by valve so will not work with patching some DLL's
 19)Enemy ManaBars
-20)Exp Rsange
+20)Exp Range
 21)Ez Procast
 22)Ez Sunstrike
 23)Ez Techies Auto (Auto using of remote mines and force staff)
@@ -161,7 +165,7 @@ Distributed under the GNU GPL v3 license. See ``LICENSE`` for more information.
 7)Ward Tracker
 ```
 ## Credits
-To me as an Author and other people from the community (snajdovski for the API and most of the scripts base)
+To me as an Author and other people from the community  ( API and most of the script base)
 
 ## Compatability
 Windows only for now.

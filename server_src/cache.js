@@ -43,11 +43,11 @@ class ScriptCache extends Cache {
 			if(this.dev_script_cache === undefined)
 				this.dev_script_cache = {}
 			var timestamp = fs.statSync(name).mtimeMs
-			if(dev_script_cache[name] != undefined && dev_script_cache[name].timestamp === timestamp)
-				return new Promise(accept => accept(dev_script_cache[name].code))
+			if(this.dev_script_cache[name] != undefined && this.dev_script_cache[name].timestamp === timestamp)
+				return new Promise(accept => accept(this.dev_script_cache[name].code))
 
 			return promise.then(code => {
-				var code = babel.transform(code, {
+				code = babel.transform(code, {
 					filename: name,
 					retainLines: false,
 					comments: false,
