@@ -41,6 +41,7 @@ var Corona = {
 	
 	GetScript(scriptName: string): Promise<string> { return null },
 	GetXML(file: string): Promise<string> { return null },
+	GetStyle(file: string): Promise<string> { return null },
 	SaveConfig(scriptName: string, config: any): Promise<string> { return null },
 	GetConfig(scriptName: string): Promise<string | Array<any> | any> { return null },
 
@@ -257,6 +258,7 @@ Corona.SteamAPIRequest = (type: String, IName: String, methodName: String, param
 
 Corona.GetScript = (scriptName: string): Promise<string> => Corona.ServerRequest("getscript", scriptName)
 Corona.GetXML = (file: string): Promise<string> => Corona.ServerRequest("getxml", file)
+Corona.GetStyle = (file: string): Promise<string> => Corona.ServerRequest("getstyle", file)
 Corona.SaveConfig = (scriptName: string, config: any): Promise<string> => Corona.ServerRequest("writeconfig", scriptName, [config])
 Corona.GetConfig = (scriptName: string): Promise<any> => new Promise(resolve => Corona.ServerRequest("getconfig", scriptName).then(json => resolve(json[0])))
 
@@ -322,8 +324,9 @@ if(Corona.Panels.MainPanel !== undefined)
 
 function InstallMainHUD(): void {
 	var globalContext = $.GetContextPanel()
-	while(globalContext.paneltype !== "DOTAHud")
+	while(globalContext.paneltype !== "DOTAHud") {
 		globalContext = globalContext.GetParent()
+	}
 	Corona.Panels.Main = globalContext
 	Corona.Panels.Main.HUDElements = Corona.Panels.Main.FindChild("HUDElements")
 }
