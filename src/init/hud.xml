@@ -1,42 +1,41 @@
 <root>
 	<styles>
-		<include src="s2r://panorama/styles/dotastyles.css"/>
+		<include src="s2r://panorama/styles/dotastyles.css" />
 		<include src='s2r://panorama/styles/popups/popups_shared.vcss_c' />
 		<include src='s2r://panorama/styles/battle_pass/current_battle_pass.vcss_c' />
 		<include src='s2r://panorama/styles/popups/popup_settings.vcss_c' />
 	</styles>
 
-	<Panel draggable="true" >
-		  
-	
-		<Panel id="Main" >
-	
-		<Panel id="top-menu">
-		<Image src='https://i.imgur.com/Oec9AjJ.png' style='width: 250px; height: 30px;'/>
-		</Panel>
-		
-			<Label id="ScriptsName" text="Corona v 0.2.1" style='width: 250px;'/>
-				<Panel id="logo">
-		<Image src='https://i.imgur.com/9Lgj8AF.png' style='width: 250px; height: 125px;'/>
-			<!-- <Image src='https://i.ibb.co/gFWCXCP/observer-ward.png' style='width: 80px; height: 80px;'/> -->
-		</Panel>
-		
+	<Panel draggable="true">
+
+		<Panel id="Main">
+
+			<Panel id="top-menu">
+				<Image src='https://i.imgur.com/Oec9AjJ.png' style='width: 250px; height: 30px;' />
+			</Panel>
+
+			<Label id="ScriptsName" text="Corona v 0.2.2" style='width: 250px;' />
+			<Panel id="logo">
+				<Image src='https://i.imgur.com/9Lgj8AF.png' style='width: 250px; height: 125px;' />
+				<!-- <Image src='https://i.ibb.co/gFWCXCP/observer-ward.png' style='width: 80px; height: 80px;'/> -->
+			</Panel>
+
 			<Panel id="Overlay">
-				<Panel id="scripts"/>
+				<Panel id="scripts" />
 			</Panel>
 			<Button id="Reload">
-				<Label id="ReloadText" text="Reload scripts"/>
+				<Label id="ReloadText" text="Reload scripts" />
 			</Button>
-		
-			<Label id="ScriptLogName" text="Script log"/>
-			<Panel id="ScriptLog"/>
+
+			<Label id="ScriptLogName" text="Script log" />
+			<Panel id="ScriptLog" />
 			<Panel id="bottom-menu">
-		<Image src='https://i.imgur.com/esdVn83.png' style='width: 250px; height: 10px;'/>
-		</Panel>
+				<Image src='https://i.imgur.com/esdVn83.png' style='width: 250px; height: 10px;' />
+			</Panel>
 		</Panel>
 		<!-- <Button id="QuestSlideThumb" class="PanelSlideThumb">
 		<Panel class="PanelSlideThumbArrow"/>
 		</Button> -->
-		
+
 	</Panel>
 </root>
