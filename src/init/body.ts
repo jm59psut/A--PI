@@ -41,6 +41,7 @@ var Corona = {
 	
 	GetScript(scriptName: string): Promise<string> { return null },
 	GetXML(file: string): Promise<string> { return null },
+	GetStyle(file: string): Promise<string> { return null },
 	SaveConfig(scriptName: string, config: any): Promise<string> { return null },
 	GetConfig(scriptName: string): Promise<string | Array<any> | any> { return null },
 
@@ -173,6 +174,11 @@ Corona.ReloadCorona = (): void => {
 		delete Corona.Panels.MainPanel
 	}
 
+	if(Corona.Panels.MenuButton) {
+		Corona.Panels.MenuButton.DeleteAsync(0)
+		delete Corona.Panels.MenuButton
+	}
+
 	Corona.ServerRequest("scriptlist")
 		.then(response => Promise.all(response.map(str => `${str}/body`).map(Corona.GetScript)))
 		.then(scriptsCode => {
@@ -257,6 +263,7 @@ Corona.SteamAPIRequest = (type: String, IName: String, methodName: String, param
 
 Corona.GetScript = (scriptName: string): Promise<string> => Corona.ServerRequest("getscript", scriptName)
 Corona.GetXML = (file: string): Promise<string> => Corona.ServerRequest("getxml", file)
+Corona.GetStyle = (file: string): Promise<string> => Corona.ServerRequest("getstyle", file)
 Corona.SaveConfig = (scriptName: string, config: any): Promise<string> => Corona.ServerRequest("writeconfig", scriptName, [config])
 Corona.GetConfig = (scriptName: string): Promise<any> => new Promise(resolve => Corona.ServerRequest("getconfig", scriptName).then(json => resolve(json[0])))
 
@@ -267,6 +274,17 @@ Corona.LoadCorona = (): Promise<void> => new Promise(resolve => {
 		Corona.Panels.MainPanel.DeleteAsync(0)
 		delete Corona.Panels.MainPanel
 	}
+
+	var menuButtons = Corona.Panels.Main.HUDElements.FindChild('MenuButtons').FindChild('ButtonBar')
+	Corona.Panels.MenuButton = $.CreatePanel("Button", menuButtons, "ToggleCoronaButton")
+	Corona.Panels.MenuButton.BLoadLayoutFromString(`
+		<root>\
+			<Button style="background-image: url('s2r://panorama/images/control_icons/guild_leader_png.vtex'); background-size: 26px;"/>\
+		</root>
+	`, false, false)
+	Corona.Panels.MenuButton.SetPanelEvent("onactivate", () => {
+		Corona.Panels.MainPanel.visible = !Corona.Panels.MainPanel.visible
+	})
 
 	Corona.Panels.MainPanel = $.CreatePanel("Panel", Corona.Panels.Main, "DotaOverlay")
 	Corona.GetXML("init/hud").then(layout_String => {
@@ -322,8 +340,9 @@ if(Corona.Panels.MainPanel !== undefined)
 
 function InstallMainHUD(): void {
 	var globalContext = $.GetContextPanel()
-	while(globalContext.paneltype !== "DOTAHud")
+	while(globalContext.paneltype !== "DOTAHud") {
 		globalContext = globalContext.GetParent()
+	}
 	Corona.Panels.Main = globalContext
 	Corona.Panels.Main.HUDElements = Corona.Panels.Main.FindChild("HUDElements")
 }
@@ -390,6 +409,7 @@ function WaitForGameStart(): void {
 			Game.AddCommand("_MouseDown", () => ChangeCamDist(cam_dist_struct.lastValue + (GameUI.IsControlDown() ? 25 : 0)), "", 0)
 			Game.AddCommand("__ReloadCorona", Corona.ReloadCorona, "", 0)
 			Game.AddCommand("__TogglePanel", () => Corona.Panels.MainPanel.visible = !Corona.Panels.MainPanel.visible, "",0)
+			Game.AddCommand("__ToggleMenuButton", () => Corona.Panels.MenuButton.visible = !Corona.Panels.MenuButton.visible, "",0)
 			Game.AddCommand("__eval", (name, code) => $.Msg("__eval", eval(code)), "", 0)
 			Game.AddCommand("__ToggleMinimapActs", () => Corona.Panels.Main.HUDElements.FindChildTraverse("GlyphScanContainer").visible = MinimapActsEnabled = !MinimapActsEnabled, "",0)
 			Game.AddCommand("__ToggleStats", () => Corona.Panels.Main.HUDElements.FindChildTraverse("quickstats").visible = StatsEnabled = !StatsEnabled, "",0)

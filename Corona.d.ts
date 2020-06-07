@@ -26,6 +26,7 @@ interface Corona {
 	
 	GetScript(scriptName: string): Promise<string>
 	GetXML(file: string): Promise<string>
+	GetStyle(file: string): Promise<string>
 	SaveConfig(scriptName: string, config: any): Promise<string>
 	GetConfig(scriptName: string): Promise<string | Array<any> | any>
 
